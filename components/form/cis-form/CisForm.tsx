@@ -194,7 +194,7 @@ export default function CISForm() {
     })
 
     try {
-      const res = await fetch('https://nchsltdadmin.com/wp-json/contact-form-7/v1/contact-forms/13/feedback', {
+      const res = await fetch('https://alphacapital1.com/wp-json/contact-form-7/v1/contact-forms/13/feedback', {
         method: 'POST',
         body: formData,
       })

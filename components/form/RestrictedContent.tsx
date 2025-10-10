@@ -29,7 +29,7 @@ export default function RestrictedContent({ children }: { children?: React.React
     }
     setLoading(true);
     try {
-      const res = await axios.post("https://nchsltdadmin.com/wp-json/nchsltd/v1/email-verification", { email });
+      const res = await axios.post("https://alphacapital1.com/wp-json/nchsltd/v1/email-verification", { email });
       if (res.data.success) {
         setStep("otp");
         setSuccessMessage("✅ OTP sent to your email!");
@@ -53,7 +53,7 @@ export default function RestrictedContent({ children }: { children?: React.React
     setLoading(true);
     try {
       const res = await axios.post(
-        "https://nchsltdadmin.com/wp-json/nchsltd/v1/verify-otp",
+        "https://alphacapital1.com/wp-json/nchsltd/v1/verify-otp",
         { email, otp }
       );
       console.log("OTP Verification Response:", res.data);
@@ -97,7 +97,7 @@ export default function RestrictedContent({ children }: { children?: React.React
       formData.append("_wpcf7_container_post", "0");
       formData.append("user-email", email); // CF7 field
       const res = await axios.post(
-        "https://nchsltdadmin.com/wp-json/contact-form-7/v1/contact-forms/55/feedback",
+        "https://alphacapital1.com/wp-json/contact-form-7/v1/contact-forms/55/feedback",
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );

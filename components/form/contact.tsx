@@ -33,7 +33,7 @@ export default function ContactForm() {
     formData.append('message', (form.elements.namedItem("message") as HTMLTextAreaElement).value);
 
     try {
-      const res = await fetch(`https://nchsltdadmin.com/wp-json/contact-form-7/v1/contact-forms/14/feedback`, {
+      const res = await fetch(`https://alphacapital1.com/wp-json/contact-form-7/v1/contact-forms/14/feedback`, {
         method: "POST",
         body: formData,
       });
