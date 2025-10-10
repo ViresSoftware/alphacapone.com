@@ -28,7 +28,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-black/50 z-[1]" />
       {/* Overlay Content */}
       <div className="text-white relative z-10 px-6 max-w-xl lg:max-w-2xl text-white">
-        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-playfair font-semibold mb-4">NCHS LTD</h1>
+        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-playfair font-semibold mb-4">Alpha Capital One</h1>
         <p className="md:text-lg md:text-xl mb-6">
           Private Access to the World’s Most Valuable Assets — Secured, Verified, Confidential.
         </p>
