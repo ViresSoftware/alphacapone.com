@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="max-w-6xl grid gap-4 sm:flex mx-auto sm:justify-between mb-10 items-center">
         <div className="space-y-2 flex flex-col items-center md:items-start">
           <Link href="/#hero" scroll={true}>
-            <Image src={logo} alt="NCHS LTD Logo" width={130} height={40} priority />
+            <Image src={logo} alt="Alpha Capital One Logo" width={130} height={40} priority />
           </Link>
           <p className="font-playfair text-muted-foreground text-xs mt-[-10px] mx-auto">Established 2020</p>
         </div>
@@ -29,13 +29,13 @@ export default function Footer() {
       </div>
       <div className="mt-6 text-center space-y-1 text-xs">
         <p className="text-muted-foreground">
-          &copy; {new Date().getFullYear()} NCHS LTD. All rights reserved.
+          &copy; {new Date().getFullYear()} Alpha Capital One. All rights reserved.
         </p>
         <p className="text-[#b28f3f]">
           This site is confidential and monitored. Unauthorized use is prohibited.
         </p>
         <a
-          href="/privacy-policy"
+          href="/privacy"
           className="underline opacity-50 hover:opacity-100"
         >
           Privacy Policy
