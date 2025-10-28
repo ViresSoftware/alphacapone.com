@@ -13,29 +13,28 @@ export default function Hero() {
       transition={{ duration: 1 }}
       className="relative min-h-[500px] lg:min-h-screen flex items-center justify-center text-center overflow-hidden"
     >
-      {/* YouTube Background Video */}
+      {/* Background Video */}
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full">
-           <iframe
-          className="absolute top-1/2 left-1/2"
+        <video
+          className="absolute top-1/2 left-1/2 w-full h-full object-cover"
           style={{
-            width: "1905px",
-            height: "1071.56px",
             transform: "translate(-50%, -50%)",
           }}
-          src="https://www.youtube.com/embed/xLq5FH0gYb4?si=-en4RRM9HJRk2rpW&autoplay=1&mute=1&controls=0&loop=1&playlist=xLq5FH0gYb4&modestbranding=1&rel=0&showinfo=0&playsinline=1"
-          allow="autoplay; fullscreen"
-          allowFullScreen
-          title="Integration Background Video"
-        ></iframe>
-        </div>
+          autoPlay
+          muted
+          loop
+          playsInline
+        >
+          <source src="/futuristic-bank-vault.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div className="absolute inset-0 bg-black/75 z-[1]" />
       </div>
-
       {/* Overlay Content */}
       <div className="text-white relative z-10 px-6 max-w-xl lg:max-w-2xl text-white">
-        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-playfair font-semibold mb-4">NCHS LTD</h1>
+        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-playfair font-semibold mb-4">Alpha Capital One</h1>
         <p className="md:text-lg md:text-xl mb-6">
-          Private Access to the World’s Most Valuable Assets — Secured, Verified, Confidential.
+          Private Access to the World&apos;s Most Valuable Assets — Secured, Verified, Confidential.
         </p>
         <Link href="#contact" className="neon-gold-btn">
           <Lock className="locked h-5 w-5 mr-2"/>
@@ -43,7 +42,6 @@ export default function Hero() {
           <span>Private Inquiry</span>
         </Link>
       </div>
-
       {/* Optional dark overlay */}
       <div className="absolute inset-0 bg-black/50 z-[1]" />
     </motion.section>

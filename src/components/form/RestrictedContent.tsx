@@ -21,6 +21,15 @@ export default function RestrictedContent({ children }: { children?: React.React
 
   const validateEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
+  // test
+  const sendOtp = () => {
+    setIsVerified(true);
+    localStorage.setItem("emailVerified", "true");
+    setSuccessMessage("✅ Verified!");
+  }
+
+  // real 
+  /*
   const sendOtp = async () => {
     setErrorMessage(""); // clear previous errors
     if (!validateEmail(email)) {
@@ -43,6 +52,7 @@ export default function RestrictedContent({ children }: { children?: React.React
       setLoading(false);
     }
   };
+  */
 
   const verifyOtp = async () => {
     setErrorMessage(""); 
@@ -57,7 +67,6 @@ export default function RestrictedContent({ children }: { children?: React.React
         { email, otp }
       );
       console.log("OTP Verification Response:", res.data);
-
       if (res.data.success) {
         setIsVerified(true);
         localStorage.setItem("emailVerified", "true");
@@ -130,7 +139,6 @@ export default function RestrictedContent({ children }: { children?: React.React
                 ? "This website content is restricted to legitimate visitors only. Enter a valid email address to receive a verification code."
                 : "Check your email and enter the 6-digit code to access the content."}
             </p>
-
             <form
               onSubmit={(e) => {
                 e.preventDefault();
@@ -139,7 +147,6 @@ export default function RestrictedContent({ children }: { children?: React.React
               className="space-y-4"
             >
               {errorMessage && <div className="text-red-500 text-sm font-medium">{errorMessage}</div>} {/* <-- Show error */}
-
               {step === "email" && (
                 <Input
                   type="email"

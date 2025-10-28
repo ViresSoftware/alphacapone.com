@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Building2 } from "lucide-react";
-import logo from "@/public/logo.png";
 
 export default function Footer() {
   return (
@@ -9,9 +8,9 @@ export default function Footer() {
       <div className="max-w-6xl grid gap-4 sm:flex mx-auto sm:justify-between mb-10 items-center">
         <div className="space-y-2 flex flex-col items-center md:items-start">
           <Link href="/#hero" scroll={true}>
-            <Image src={logo} alt="Alpha Capital One Logo" width={130} height={40} priority />
+            <Image src={'/logo.png'} alt="Alpha Capital One Logo" width={130} height={40} priority />
           </Link>
-          <p className="font-playfair text-muted-foreground text-xs mt-[-10px] mx-auto">Established 2020</p>
+          {/* <p className="font-playfair text-muted-foreground text-xs mt-[-10px] mx-auto">Established 2020</p> */}
         </div>
         <nav className="text-md font-medium text-muted-foreground flex flex-col sm:flex-row sm:gap-6 sm:items-center sm:w-[33%] md:w-[50%]">
           <Link href="/#hero" scroll={true} className="block hover:text-[#b28f3f]">Home</Link>
@@ -26,6 +25,9 @@ export default function Footer() {
           {/*<p>Cayman Islands</p>*/}
           <p>Nevis, West Indies</p>
         </div>
+      </div>
+      <div className="mt-6 text-center">
+        <p className="text-muted-foreground text-sm">DISCLAIMER: This site is general in nature and not tailored to the specific goals of any individual. All investments carry risk. Some of those risks associated with precious metals include the following: prices may rise and fall, which means the value of your metals may go up or down over time and you may sell for more or less than you paid. Past performance does not guarantee future results. Goldco cannot guarantee, assure, or promise future market movement, prices, or profits. Even though Goldco and its representatives are precious metals specialists, we are not licensed financial advisors and do not give financial advice. Additionally, Goldco cannot provide tax or legal advice and will not advise as to the tax or legal consequences of purchasing or selling precious metals or opening a Precious Metals IRA. Individuals should consult with their investment, legal or tax professionals for such services.</p>
       </div>
       <div className="mt-6 text-center space-y-1 text-xs">
         <p className="text-muted-foreground">

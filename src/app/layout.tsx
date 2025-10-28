@@ -1,9 +1,9 @@
 import Script from "next/script";
 import Header from "@/components/layout/header";
-import "./globals.css";
 import Footer from "@/components/layout/footer";
 import { Inter, Playfair_Display } from "next/font/google";
 import { RestrictionProvider } from "@/context/RestrictionContext";
+import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -19,7 +19,7 @@ const playfair = Playfair_Display({
 
 export const metadata = {
   title: "Alpha Capital One",
-  description: "Private access to the world’s most valuable assets — secured, verified, confidential.",
+  description: "Your Partner in Sophisticated Investment Strategies",
   icons: {
     icon: "/favicon.ico",
   },
