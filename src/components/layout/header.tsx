@@ -42,11 +42,10 @@ export default function Header() {
   }, []);
 
   const navItems = [
-    { href: "/about", label: "About" },
-    { href: "/#commodities", label: "Offerings" },
-    { href: "/#privacy", label: "Protocols" },
-    { href: "/#contact", label: "Inquiry" },
-    // { href: "/client-information-sheet", label: "Client Information Sheet" },
+    { href: "/ai", label: "Artificial Intelligence" },
+    { href: "/crypto", label: "Cryptocurrency" },
+    { href: "/commodities", label: "Commodities" },
+    { href: "/gold", label: "Gold" },
   ];
 
   return (

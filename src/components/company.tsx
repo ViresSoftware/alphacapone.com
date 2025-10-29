@@ -13,9 +13,7 @@ export default function Company() {
     >
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-3xl font-playfair mb-4">Who We Are</h2>
-         <p className="text-center max-w-3xl mx-auto">
-         Alpha Capital One is a private global entity engaged in non-public, off-market transactions in high-value commodities and confidential asset structures.
-          We serve institutional clients, private wealth groups, and authorized intermediaries operating under the highest levels of compliance, discretion, and operational security.      </p>
+        <p className="text-center max-w-3xl mx-auto">Your Partner in Sophisticated Investment Strategies</p>
       </div>
     </motion.section>
   );

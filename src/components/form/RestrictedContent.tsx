@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
 import axios from "axios";
 import { Lock, LockOpen } from "lucide-react";
+import { Button } from "../ui/button";
 
 export default function RestrictedContent({ children }: { children?: React.ReactNode }) {
   const [email, setEmail] = useState("");
@@ -167,7 +168,7 @@ export default function RestrictedContent({ children }: { children?: React.React
                   required
                 />
               )}
-              <button type="submit" className="neon-gold-btn w-full" disabled={loading}>
+              <Button type="submit" className="bg-black hover:bg-green-500 w-full" disabled={loading}>
                 <div className="flex justify-center items-center gap-2">
                   {loading ? (
                     <>⏳ {step === "email" ? "Sending Email Verification Coe..." : "Verifying..."}</>
@@ -178,13 +179,11 @@ export default function RestrictedContent({ children }: { children?: React.React
                       ) : (
                         <Lock className="h-5 w-5" />
                       )}
-                      <p className="text-black">
-                        {step === "email" ? "Send Email Verification Code" : "Verify Email Code"}
-                      </p>
+                      {step === "email" ? "Send Email Verification Code" : "Verify Email Code"}
                     </>
                   )}
                 </div>
-              </button>
+              </Button>
               {successMessage && <div className="text-green-400 text-sm font-medium">{successMessage}</div>}
             </form>
           </div>

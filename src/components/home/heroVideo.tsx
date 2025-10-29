@@ -1,7 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Lock, LockOpen } from 'lucide-react';
+// import { Lock, LockOpen } from 'lucide-react';
+import { Button } from "../ui/button";
 import './hero.css';
 
 export default function Hero() {
@@ -28,7 +29,7 @@ export default function Hero() {
           <source src="/futuristic-bank-vault.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        <div className="absolute inset-0 bg-black/75 z-[1]" />
+        <div className="absolute inset-0 bg-black/50 z-[1]" />
       </div>
       {/* Overlay Content */}
       <div className="text-white relative z-10 px-6 max-w-xl lg:max-w-2xl text-white">
@@ -36,11 +37,11 @@ export default function Hero() {
         <p className="md:text-lg md:text-xl mb-6">
           Private Access to the World&apos;s Most Valuable Assets — Secured, Verified, Confidential.
         </p>
-        <Link href="#contact" className="neon-gold-btn">
-          <Lock className="locked h-5 w-5 mr-2"/>
-          <LockOpen className="unlocked h-5 w-5 mr-2"/>
-          <span>Private Inquiry</span>
-        </Link>
+        <Button variant="outline" className="bg-black hover:bg-green-500 hover:border-green-500" asChild>
+          <Link href="#contact">
+            <span>Contact Us</span>
+          </Link>
+        </Button>
       </div>
       {/* Optional dark overlay */}
       <div className="absolute inset-0 bg-black/50 z-[1]" />
