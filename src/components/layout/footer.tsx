@@ -5,8 +5,8 @@ import { Building2 } from "lucide-react";
 const navItems = [
   { href: "/ai", label: "Artificial Intelligence"},
   { href: "/crypto", label: "Cryptocurrency"},
-  { href: "/commodities", label: "Commodities"},
   { href: "/gold", label: "Gold"},
+  { href: "/commodities", label: "Commodities"},
 ];
 
 export default function Footer() {
