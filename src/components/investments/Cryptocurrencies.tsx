@@ -2,6 +2,9 @@
 
 import { motion } from "framer-motion";
 import { Coins, Wallet, Lock, TrendingUp, Shield, Network } from "lucide-react";
+import { Button } from "../ui/button";
+import Link from "next/link";
+import { Mail } from "lucide-react";
 
 const features = [
   {
@@ -114,14 +117,13 @@ export default function CryptoCurrencyInvestments() {
             <div className="h-px w-20 bg-gradient-to-r from-transparent via-[#b28f3f] to-transparent" />
           </div>
         </motion.div>
-
         {/* Features Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16"
         >
           {features.map((feature, index) => {
             const Icon = feature.icon;
@@ -145,7 +147,6 @@ export default function CryptoCurrencyInvestments() {
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)]" />
                     <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.05)_25%,rgba(255,255,255,0.05)_50%,transparent_50%,transparent_75%,rgba(255,255,255,0.05)_75%)] bg-[length:20px_20px]" />
                   </div>
-
                   {/* Content */}
                   <div className="relative z-10">
                     <div className="mb-6 inline-flex p-3 rounded-xl bg-black/30 backdrop-blur-sm border border-white/10 group-hover:border-[#b28f3f]/50 transition-colors duration-300">
@@ -207,6 +208,12 @@ export default function CryptoCurrencyInvestments() {
           </div>
         </motion.div>
          */}
+        <Button variant="outline" className="bg-black border-gray-600 hover:bg-green-500 hover:border-green-500 flex items-center gap-2 w-[fit-content] mx-auto" asChild>
+          <Link href="/contact">
+            <Mail size={18} />
+            <span>Contact Us</span>
+          </Link>
+        </Button>
       </div>
     </section>
   );

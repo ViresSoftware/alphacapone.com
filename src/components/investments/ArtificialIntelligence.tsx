@@ -207,7 +207,7 @@ export default function ArtificialIntelligence() {
         </motion.div>
         */}
         <Button variant="outline" className="bg-black border-gray-600 hover:bg-green-500 hover:border-green-500 flex items-center gap-2 w-[fit-content] mx-auto" asChild>
-          <Link href="#contact">
+          <Link href="/contact">
             <Mail size={18} />
             <span>Contact Us</span>
           </Link>
