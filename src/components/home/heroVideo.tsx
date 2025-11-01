@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Link from "next/link";
-// import { Lock, LockOpen } from 'lucide-react';
+import { Bot, Coins, Gem, Mail } from "lucide-react";
 import { Button } from "../ui/button";
 import './hero.css';
 
@@ -37,11 +37,26 @@ export default function Hero() {
         <p className="md:text-lg md:text-xl mb-6">
           Private Access to the World&apos;s Most Valuable Assets — Secured, Verified, Confidential.
         </p>
-        <Button variant="outline" className="bg-black hover:bg-green-500 hover:border-green-500" asChild>
-          <Link href="#contact">
-            <span>Contact Us</span>
-          </Link>
-        </Button>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
+          <Button variant="outline" className="bg-black border-gray-600 hover:bg-blue-500 hover:border-blue-500 transition-colors flex items-center gap-2" asChild>
+            <Link href="/investments/artificial-intelligence">
+              <Bot size={18} />
+              <span>Artificial Intelligence</span>
+            </Link>
+          </Button>
+          <Button variant="outline" className="bg-black border-gray-600 hover:bg-orange-500 hover:border-orange-500 transition-colors flex items-center gap-2" asChild>
+            <Link href="/investments/crypto">
+              <Coins size={18} />
+              <span>Cryptocurrency</span>
+            </Link>
+          </Button>
+          <Button variant="outline" className="bg-black border-gray-600 hover:bg-yellow-500 hover:border-yellow-500 transition-colors flex items-center gap-2" asChild>
+            <Link href="/investments/gold">
+              <Gem size={18} />
+              <span>Gold</span>
+            </Link>
+          </Button>
+        </div>
       </div>
       {/* Optional dark overlay */}
       <div className="absolute inset-0 bg-black/50 z-[1]" />

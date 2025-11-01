@@ -1,12 +1,32 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Building2 } from "lucide-react";
+import { Bot, Coins, Gem } from "lucide-react";
 
 const navItems = [
-  { href: "/ai", label: "Artificial Intelligence"},
-  { href: "/crypto", label: "Cryptocurrency"},
-  { href: "/gold", label: "Gold"},
-  { href: "/commodities", label: "Commodities"},
+  { 
+    href: "/investments/artificial-intelligence", 
+    label: "Artificial Intelligence",
+    colors: "hover:text-blue-500",
+    icon: Bot,
+  },
+  { 
+    href: "/investments/cryptocurrencies", 
+    label: "Cryptocurrency",
+    colors: "hover:text-orange-500",
+    icon: Coins,
+  },
+  { 
+    href: "/investments/gold", 
+    label: "Gold",
+    colors: "hover:text-yellow-500",
+    icon: Gem,
+  },
+  // { 
+  //   href: "/commodities", 
+  //   label: "Commodities",
+  //   colors: "hover:text-green-500",
+  //   icon: Package,
+  // },
 ];
 
 export default function Footer() {
@@ -19,9 +39,15 @@ export default function Footer() {
           </Link>
           {/* <p className="font-playfair text-muted-foreground text-xs mt-[-10px] mx-auto">Established 2020</p> */}
         </div>
-        <nav className="text-md font-medium text-muted-foreground flex flex-col sm:flex-row sm:gap-6">
-          {navItems.map(({ href, label }) => (
-            <Link key={href} href={href} scroll={true} className="block hover:text-[#b28f3f]">
+        <nav className="text-md font-medium text-muted-foreground flex flex-col sm:flex-row sm:gap-6 items-center">
+          {navItems.map(({ href, label, colors, icon: Icon }) => (
+            <Link 
+              key={href} 
+              href={href} 
+              scroll={true} 
+              className={`${colors} transition-colors duration-300 flex items-center gap-2 group`}
+            >
+              {Icon && <Icon size={18} className="group-hover:scale-110 transition-transform duration-300" />}
               {label}
             </Link>
           ))}

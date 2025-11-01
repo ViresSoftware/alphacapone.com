@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import { Menu, X, Lock } from "lucide-react";
+import { Menu, X, Lock, Bot, Coins, Gem } from "lucide-react";
 import LoginForm from "../form/Login";
 
 export default function Header() {
@@ -42,10 +42,25 @@ export default function Header() {
   }, []);
 
   const navItems = [
-    { href: "/ai", label: "Artificial Intelligence" },
-    { href: "/crypto", label: "Cryptocurrency" },
-    { href: "/gold", label: "Gold" },
-    { href: "/commodities", label: "Commodities" },
+    {
+      href: "/investments/artificial-intelligence",
+      label: "Artificial Intelligence",
+      colors: "hover:text-blue-500",
+      icon: Bot,
+    },
+    { 
+      href: "/investments/cryptocurrencies", 
+      label: "Cryptocurrency", 
+      colors: "hover:text-orange-500",
+      icon: Coins,
+    },
+    { 
+      href: "/investments/gold", 
+      label: "Gold", 
+      colors: "hover:text-yellow-500",
+      icon: Gem,
+    },
+    // { href: "/commodities", label: "Commodities" },
   ];
 
   return (
@@ -63,8 +78,14 @@ export default function Header() {
         </Link>
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center space-x-6 text-sm font-medium">
-          {navItems.map(({ href, label }) => (
-            <Link key={href} href={href} scroll={true} className="font-playfair hover:text-[#b28f3f]">
+          {navItems.map(({ href, label, colors, icon: Icon }) => (
+            <Link 
+              key={href} 
+              href={href} 
+              scroll={true} 
+              className={`font-playfair ${colors} transition-colors duration-300 flex items-center gap-2 group`}
+            >
+              {Icon && <Icon size={18} className="group-hover:scale-110 transition-transform duration-300" />}
               {label}
             </Link>
           ))}
@@ -87,8 +108,15 @@ export default function Header() {
       {/* Mobile Nav */}
       {menuOpen && (
         <div className="lg:hidden text-white px-6 pb-4 space-y-4 font-medium">
-          {navItems.map(({ href, label }) => (
-            <Link key={href} href={href} scroll={true} className="block hover:text-[#b28f3f]" onClick={() => setMenuOpen(false)}>
+          {navItems.map(({ href, label, colors, icon: Icon }) => (
+            <Link 
+              key={href} 
+              href={href} 
+              scroll={true} 
+              className={`block ${colors} transition-colors duration-300 flex items-center gap-3 py-2 group`}
+              onClick={() => setMenuOpen(false)}
+            >
+              {Icon && <Icon size={20} className="group-hover:scale-110 transition-transform duration-300" />}
               {label}
             </Link>
           ))}

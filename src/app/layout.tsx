@@ -20,9 +20,9 @@ const playfair = Playfair_Display({
 export const metadata = {
   title: "Alpha Capital One",
   description: "Your Partner in Sophisticated Investment Strategies",
-  icons: {
-    icon: "/favicon.ico",
-  },
+  // icons: {
+  //   icon: "/favicon.ico",
+  // },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

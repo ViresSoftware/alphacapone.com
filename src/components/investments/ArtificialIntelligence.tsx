@@ -1,7 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Brain, TrendingUp, Shield, Zap, Database, Network } from "lucide-react";
+import { Brain, TrendingUp, Shield, Zap, Database, Network, Mail } from "lucide-react";
+import { Button } from "../ui/button";
+import Link from "next/link";
 
 const features = [
   {
@@ -79,9 +81,7 @@ export default function ArtificialIntelligence() {
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
         <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }} />
       </div>
-
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -114,14 +114,13 @@ export default function ArtificialIntelligence() {
             <div className="h-px w-20 bg-gradient-to-r from-transparent via-[#b28f3f] to-transparent" />
           </div>
         </motion.div>
-
         {/* Features Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16"
         >
           {features.map((feature, index) => {
             const Icon = feature.icon;
@@ -166,8 +165,7 @@ export default function ArtificialIntelligence() {
             );
           })}
         </motion.div>
-
-        {/* Bottom CTA Section */}
+        {/* Bottom CTA Section
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -176,13 +174,11 @@ export default function ArtificialIntelligence() {
           className="mt-20 text-center"
         >
           <div className="relative max-w-4xl mx-auto p-12 rounded-3xl backdrop-blur-xl bg-gradient-to-br from-[#b28f3f]/10 via-black/50 to-[#b28f3f]/10 border border-[#b28f3f]/30 overflow-hidden">
-            {/* Animated border glow */}
             <motion.div 
               className="absolute inset-0 rounded-3xl bg-gradient-to-r from-[#b28f3f]/0 via-[#b28f3f]/20 to-[#b28f3f]/0"
               animate={{ opacity: [0.3, 0.8, 0.3] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             />
-            
             <div className="relative z-10">
               <h3 className="text-2xl md:text-3xl font-playfair font-semibold mb-4 text-white">
                 Intelligence-Driven Investment Strategy
@@ -209,6 +205,13 @@ export default function ArtificialIntelligence() {
             </div>
           </div>
         </motion.div>
+        */}
+        <Button variant="outline" className="bg-black border-gray-600 hover:bg-green-500 hover:border-green-500 flex items-center gap-2 w-[fit-content] mx-auto" asChild>
+          <Link href="#contact">
+            <Mail size={18} />
+            <span>Contact Us</span>
+          </Link>
+        </Button>
       </div>
     </section>
   );

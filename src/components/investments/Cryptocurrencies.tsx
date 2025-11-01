@@ -166,8 +166,7 @@ export default function CryptoCurrencyInvestments() {
             );
           })}
         </motion.div>
-
-        {/* Bottom CTA Section */}
+        {/* Bottom CTA Section
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -176,13 +175,11 @@ export default function CryptoCurrencyInvestments() {
           className="mt-20 text-center"
         >
           <div className="relative max-w-4xl mx-auto p-12 rounded-3xl backdrop-blur-xl bg-gradient-to-br from-[#b28f3f]/10 via-black/50 to-[#b28f3f]/10 border border-[#b28f3f]/30 overflow-hidden">
-            {/* Animated border glow */}
             <motion.div 
               className="absolute inset-0 rounded-3xl bg-gradient-to-r from-[#b28f3f]/0 via-[#b28f3f]/20 to-[#b28f3f]/0"
               animate={{ opacity: [0.3, 0.8, 0.3] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             />
-            
             <div className="relative z-10">
               <h3 className="text-2xl md:text-3xl font-playfair font-semibold mb-4 text-white">
                 Digital Asset Excellence
@@ -209,6 +206,7 @@ export default function CryptoCurrencyInvestments() {
             </div>
           </div>
         </motion.div>
+         */}
       </div>
     </section>
   );
