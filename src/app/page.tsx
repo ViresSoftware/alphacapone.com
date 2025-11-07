@@ -1,6 +1,7 @@
 import Hero from "@/components/home/heroVideo";
 import RestrictedContent from "@/components/form/RestrictedContent";
 import ArtificialIntelligence from "@/components/investments/ArtificialIntelligence";
+import FeaturedCrypto from "@/components/home/FeaturedCrypto";
 import CryptoCurrencyInvestments from "@/components/investments/Cryptocurrencies";
 import GoldInvestments from "@/components/investments/Gold";
 // import CommoditiesInvestments from "@/components/investments/Commodities";
@@ -11,6 +12,7 @@ export default function IndexPage() {
       <RestrictedContent>
         <Hero />
         <ArtificialIntelligence />
+        <FeaturedCrypto />
         <CryptoCurrencyInvestments />
         <GoldInvestments />
         {/* <CommoditiesInvestments /> */}

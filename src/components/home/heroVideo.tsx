@@ -38,19 +38,19 @@ export default function Hero() {
           Private Access to the World&apos;s Most Valuable Assets — Secured, Verified, Confidential.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
-          <Button variant="outline" className="bg-black border-gray-600 hover:bg-blue-500 hover:border-blue-500 transition-colors flex items-center gap-2" asChild>
+          <Button variant="outline" className="bg-black hover:text-white border-gray-600 hover:bg-blue-500 hover:border-blue-500 transition-colors flex items-center gap-2" asChild>
             <Link href="/investments/artificial-intelligence">
               <Bot size={18} />
               <span>Artificial Intelligence</span>
             </Link>
           </Button>
-          <Button variant="outline" className="bg-black border-gray-600 hover:bg-orange-500 hover:border-orange-500 transition-colors flex items-center gap-2" asChild>
+          <Button variant="outline" className="bg-black hover:text-white border-gray-600 hover:bg-orange-500 hover:border-orange-500 transition-colors flex items-center gap-2" asChild>
             <Link href="/investments/crypto">
               <Coins size={18} />
               <span>Cryptocurrency</span>
             </Link>
           </Button>
-          <Button variant="outline" className="bg-black border-gray-600 hover:bg-yellow-500 hover:border-yellow-500 transition-colors flex items-center gap-2" asChild>
+          <Button variant="outline" className="bg-black hover:text-white border-gray-600 hover:bg-yellow-500 hover:border-yellow-500 transition-colors flex items-center gap-2" asChild>
             <Link href="/investments/gold">
               <Gem size={18} />
               <span>Gold</span>
