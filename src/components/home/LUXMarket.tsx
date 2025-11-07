@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 const bugattiVideo = "/bugatti-smoke.mp4";
 
@@ -65,9 +66,9 @@ export default function LUXMarket() {
           </p>
           <Button
             asChild
-            className="bg-transparent border border-gray-700 hover:border-yellow-500 hover:bg-yellow-500/10 text-white hover:text-yellow-400 transition-colors px-8 py-6 rounded-xl"
+            className="bg-transparent border border-gray-700 hover:border-yellow-500 hover:bg-yellow-500/10 text-white hover:text-yellow-400 transition-colors px-12 py-6 rounded-xl w-full max-w-[200px]"
           >
-            <Link href="/investments/lux-market">Explore LUX Market</Link>
+            <Link href="/investments/lux-market">Explore LUX Market <ArrowRight/></Link>
           </Button>
         </motion.div>
       </div>
