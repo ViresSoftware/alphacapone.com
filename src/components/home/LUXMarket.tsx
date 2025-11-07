@@ -1,13 +1,15 @@
 "use client";
-
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 
-const bugattiVideo = '/bugatti-smoke.mp4'
+const bugattiVideo = "/bugatti-smoke.mp4";
 
 export default function LUXMarket() {
+  const [isVideoReady, setIsVideoReady] = useState(false);
+
   return (
     <section className="relative bg-black text-white py-16 lg:py-24 overflow-hidden">
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 items-center gap-12 max-w-7xl">
@@ -19,16 +21,29 @@ export default function LUXMarket() {
           viewport={{ once: true }}
           className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] overflow-hidden rounded-2xl shadow-2xl"
         >
+          {!isVideoReady && (
+            <Image
+              src="/bugatti-smoke.jpg"
+              alt="LUX Market"
+              fill
+              className="object-cover"
+              priority
+            />
+          )}
+
           <video
-            className="absolute inset-0 w-full h-full object-cover"
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+              isVideoReady ? "opacity-100" : "opacity-0"
+            }`}
             autoPlay
             muted
             loop
             playsInline
-            poster="/luxmarket-fallback.jpg"
+            onCanPlay={() => setIsVideoReady(true)}
           >
             <source src={bugattiVideo} type="video/mp4" />
           </video>
+
           <div className="absolute inset-0 bg-black/40" />
         </motion.div>
 
