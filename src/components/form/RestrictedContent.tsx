@@ -22,19 +22,6 @@ export default function RestrictedContent({ children }: { children?: React.React
 
   const validateEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-  // test
-  const sendOtp = () => {
-    if (!validateEmail(email)) {
-      setErrorMessage("Please enter a valid email address.");
-      return;
-    }
-    setStep("otp");                 // ← Move to OTP step
-    setSuccessMessage("✅ OTP sent to your email!");
-    setErrorMessage("");
-  };  
-
-  // real 
-  /*
   const sendOtp = async () => {
     setErrorMessage(""); // clear previous errors
     if (!validateEmail(email)) {
@@ -57,7 +44,6 @@ export default function RestrictedContent({ children }: { children?: React.React
       setLoading(false);
     }
   };
-  */
 
   const verifyOtp = async () => {
     setErrorMessage(""); 
