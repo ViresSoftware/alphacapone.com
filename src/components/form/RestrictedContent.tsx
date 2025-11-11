@@ -24,10 +24,14 @@ export default function RestrictedContent({ children }: { children?: React.React
 
   // test
   const sendOtp = () => {
-    setIsVerified(true);
-    localStorage.setItem("emailVerified", "true");
-    setSuccessMessage("✅ Verified!");
-  }
+    if (!validateEmail(email)) {
+      setErrorMessage("Please enter a valid email address.");
+      return;
+    }
+    setStep("otp");                 // ← Move to OTP step
+    setSuccessMessage("✅ OTP sent to your email!");
+    setErrorMessage("");
+  };  
 
   // real 
   /*
@@ -100,14 +104,14 @@ export default function RestrictedContent({ children }: { children?: React.React
   const submitToCF7 = async () => {
     try {
       const formData = new FormData();
-      formData.append("_wpcf7", "14");
-      formData.append("_wpcf7_version", "5.9.3"); // adjust to match your CF7 version
+      formData.append("_wpcf7", "1098");
+      formData.append("_wpcf7_version", "6.1.3"); // adjust to match your CF7 version
       formData.append("_wpcf7_locale", "en_US");
       formData.append("_wpcf7_unit_tag", "wpcf7-f14-o1");
       formData.append("_wpcf7_container_post", "0");
       formData.append("user-email", email); // CF7 field
       const res = await axios.post(
-        "https://alphacapital1.com/wp-json/contact-form-7/v1/contact-forms/55/feedback",
+        "https://alphacapital1.com/wp-json/contact-form-7/v1/contact-forms/1098/feedback",
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
