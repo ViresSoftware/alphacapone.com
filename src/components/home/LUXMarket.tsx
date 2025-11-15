@@ -31,7 +31,6 @@ export default function LUXMarket() {
               priority
             />
           )}
-
           <video
             className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
               isVideoReady ? "opacity-100" : "opacity-0"
@@ -44,10 +43,8 @@ export default function LUXMarket() {
           >
             <source src={bugattiVideo} type="video/mp4" />
           </video>
-
           <div className="absolute inset-0 bg-black/40" />
         </motion.div>
-
         {/* Right Section - Content */}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
@@ -68,7 +65,7 @@ export default function LUXMarket() {
             asChild
             className="bg-transparent border border-gray-700 hover:border-yellow-500 hover:bg-yellow-500/10 text-white hover:text-yellow-400 transition-colors px-12 py-6 rounded-xl w-full max-w-[200px]"
           >
-            <Link href="/investments/lux-market">Explore LUX Market <ArrowRight/></Link>
+            <Link href="https://luxmarket.app" target="_blank">Explore LUX Market <ArrowRight/></Link>
           </Button>
         </motion.div>
       </div>

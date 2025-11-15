@@ -64,7 +64,11 @@ interface CryptoPriceData {
   };
 }
 
-export default function HomeFeaturedCrypto() {
+interface HomeFeaturedCryptoProps {
+  showFeatures?: boolean;
+}
+
+export default function HomeFeaturedCrypto({ showFeatures = true }: HomeFeaturedCryptoProps) {
   const [selectedTicker, setSelectedTicker] = useState<Ticker>('BTC');
   const [chartData, setChartData] = useState<CryptoCompareData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -260,57 +264,59 @@ export default function HomeFeaturedCrypto() {
             </ResponsiveContainer>
           </div>
         </div>
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-4">
-          {(['BTC', 'ETH', 'SOL'] as Ticker[]).map((ticker) => {
-            const tickerData = getTickerData(ticker);
-            const isSelected = selectedTicker === ticker;
-          
-            return (
-              <Button
-                key={ticker}
-                // variant={isSelected ? 'default' : 'outline'}
-                onClick={() => setSelectedTicker(ticker)}
-                className={`flex items-center bg-black-50 hover:bg-gray-800 text-white border p-8 gap-2 h-12 ${isSelected ? 'border-white' : 'border-gray-900'}`}
-                size="lg"
-              >
-                <Image 
-                  src={`/crypto/${ticker.toLowerCase()}.svg`} 
-                  alt={ticker} 
-                  width={24} 
-                  height={24}
-                  className="w-10 h-10"
-                />
-                {tickerData ? (
-                  <div className="flex items-center gap-2">
-                    <div className="flex flex-col items-start">
-                      <span>{ticker}</span>
-                      <span>{tickerData.displayPrice}</span>
-                    </div>
-                    <span
-                      className={`flex items-center gap-1 ${
-                        tickerData.changePercent >= 0
-                          ? 'text-green-500'
-                          : 'text-red-500'
-                      }`}
-                    >
-                      {tickerData.changePercent >= 0 ? (
-                        <TrendingUp className="w-4 h-4" />
-                      ) : (
-                        <TrendingDown className="w-4 h-4" />
-                      )}
-                      <span>
-                        {tickerData.changePercent >= 0 ? '+' : ''}
-                        {tickerData.displayChangePercent}%
+        {showFeatures && (
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-4">
+            {(['BTC', 'ETH', 'SOL'] as Ticker[]).map((ticker) => {
+              const tickerData = getTickerData(ticker);
+              const isSelected = selectedTicker === ticker;
+            
+              return (
+                <Button
+                  key={ticker}
+                  // variant={isSelected ? 'default' : 'outline'}
+                  onClick={() => setSelectedTicker(ticker)}
+                  className={`flex items-center bg-black-50 hover:bg-gray-800 text-white border p-8 gap-2 h-12 ${isSelected ? 'border-white' : 'border-gray-900'}`}
+                  size="lg"
+                >
+                  <Image 
+                    src={`/crypto/${ticker.toLowerCase()}.svg`} 
+                    alt={ticker} 
+                    width={24} 
+                    height={24}
+                    className="w-10 h-10"
+                  />
+                  {tickerData ? (
+                    <div className="flex items-center gap-2">
+                      <div className="flex flex-col items-start">
+                        <span>{ticker}</span>
+                        <span>{tickerData.displayPrice}</span>
+                      </div>
+                      <span
+                        className={`flex items-center gap-1 ${
+                          tickerData.changePercent >= 0
+                            ? 'text-green-500'
+                            : 'text-red-500'
+                        }`}
+                      >
+                        {tickerData.changePercent >= 0 ? (
+                          <TrendingUp className="w-4 h-4" />
+                        ) : (
+                          <TrendingDown className="w-4 h-4" />
+                        )}
+                        <span>
+                          {tickerData.changePercent >= 0 ? '+' : ''}
+                          {tickerData.displayChangePercent}%
+                        </span>
                       </span>
-                    </span>
-                  </div>
-                ) : (
-                  <span>Loading {ticker}...</span>
-                )}
-              </Button>
-            );
-          })}
-        </div>
+                    </div>
+                  ) : (
+                    <span>Loading {ticker}...</span>
+                  )}
+                </Button>
+              );
+            })}
+          </div>
+        )}
       </div>
     </section>
   );

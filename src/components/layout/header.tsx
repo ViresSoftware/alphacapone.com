@@ -74,7 +74,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-0">
         {/* Logo */}
         <Link href="/#hero" scroll={true} className="flex items-center space-x-2">
-          <Image src={'/logo-horizontal.png'} alt="Alpha Capital One" width={192} height={40} priority />
+          <Image src={'/logo-horizontal.png'} alt="Alpha Capital One" width={128} height={40} priority />
         </Link>
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center space-x-6 text-sm font-medium">

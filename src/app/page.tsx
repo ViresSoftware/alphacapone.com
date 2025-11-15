@@ -12,11 +12,11 @@ export default function IndexPage() {
     <>
       <RestrictedContent>
         <Hero />
-        <ArtificialIntelligence />
-        <FeaturedCrypto />
-        <CryptoCurrencyInvestments />
+        <ArtificialIntelligence showFeatures={false}/>
+        <FeaturedCrypto showFeatures={false}/>
+        <CryptoCurrencyInvestments showFeatures={false}/>
         <LUXMarket/>
-        <GoldInvestments />
+        <GoldInvestments showFeatures={false}/>
         {/* <CommoditiesInvestments /> */}
       </RestrictedContent>
     </>

@@ -72,7 +72,11 @@ const itemVariants = {
   },
 };
 
-export default function ArtificialIntelligence() {
+interface ArtificialIntelligenceProps {
+  showFeatures?: boolean;
+}
+
+export default function ArtificialIntelligence({ showFeatures = true }: ArtificialIntelligenceProps) {
   return (
     <section className="relative py-24 lg:py-32 px-4 overflow-hidden bg-black">
       {/* Animated background gradient orbs */}
@@ -87,7 +91,7 @@ export default function ArtificialIntelligence() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className={`text-center ${showFeatures ? 'mb-16' : 'mb-8'}`}
         >
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
@@ -115,97 +119,58 @@ export default function ArtificialIntelligence() {
           </div>
         </motion.div>
         {/* Features Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16"
-        >
-          {features.map((feature, index) => {
-            const Icon = feature.icon;
-            return (
-              <motion.div
-                key={feature.title}
-                variants={itemVariants}
-                whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                className="group relative"
-              >
-                <div className={`
-                  relative h-full p-8 rounded-2xl backdrop-blur-xl
-                  bg-gradient-to-br ${feature.gradient}
-                  border ${feature.border}
-                  hover:border-opacity-60 transition-all duration-500
-                  overflow-hidden
-                  before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/5 before:to-transparent before:opacity-0 group-hover:before:opacity-100 before:transition-opacity before:duration-500
-                `}>
-                  {/* Animated background pattern */}
-                  <div className="absolute inset-0 opacity-10">
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)]" />
-                    <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.05)_25%,rgba(255,255,255,0.05)_50%,transparent_50%,transparent_75%,rgba(255,255,255,0.05)_75%)] bg-[length:20px_20px]" />
-                  </div>
-
-                  {/* Content */}
-                  <div className="relative z-10">
-                    <div className="mb-6 inline-flex p-3 rounded-xl bg-black/30 backdrop-blur-sm border border-white/10 group-hover:border-[#b28f3f]/50 transition-colors duration-300">
-                      <Icon className="w-6 h-6 text-[#b28f3f] group-hover:scale-110 transition-transform duration-300" />
+        {showFeatures && (
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16"
+          >
+            {features.map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <motion.div
+                  key={feature.title}
+                  variants={itemVariants}
+                  whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                  className="group relative"
+                >
+                  <div className={`
+                    relative h-full p-8 rounded-2xl backdrop-blur-xl
+                    bg-gradient-to-br ${feature.gradient}
+                    border ${feature.border}
+                    hover:border-opacity-60 transition-all duration-500
+                    overflow-hidden
+                    before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/5 before:to-transparent before:opacity-0 group-hover:before:opacity-100 before:transition-opacity before:duration-500
+                  `}>
+                    {/* Animated background pattern */}
+                    <div className="absolute inset-0 opacity-10">
+                      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)]" />
+                      <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.05)_25%,rgba(255,255,255,0.05)_50%,transparent_50%,transparent_75%,rgba(255,255,255,0.05)_75%)] bg-[length:20px_20px]" />
                     </div>
-                    <h3 className="text-xl font-playfair font-semibold mb-3 text-white group-hover:text-[#fcd770] transition-colors duration-300">
-                      {feature.title}
-                    </h3>
-                    <p className="text-gray-300 text-sm leading-relaxed">
-                      {feature.description}
-                    </p>
-                  </div>
 
-                  {/* Shine effect on hover */}
-                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-                </div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-        {/* Bottom CTA Section
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-20 text-center"
-        >
-          <div className="relative max-w-4xl mx-auto p-12 rounded-3xl backdrop-blur-xl bg-gradient-to-br from-[#b28f3f]/10 via-black/50 to-[#b28f3f]/10 border border-[#b28f3f]/30 overflow-hidden">
-            <motion.div 
-              className="absolute inset-0 rounded-3xl bg-gradient-to-r from-[#b28f3f]/0 via-[#b28f3f]/20 to-[#b28f3f]/0"
-              animate={{ opacity: [0.3, 0.8, 0.3] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            />
-            <div className="relative z-10">
-              <h3 className="text-2xl md:text-3xl font-playfair font-semibold mb-4 text-white">
-                Intelligence-Driven Investment Strategy
-              </h3>
-              <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-                Experience the future of investment management. Our AI-powered platform combines 
-                institutional expertise with cutting-edge technology to deliver superior returns 
-                while maintaining the highest standards of security and discretion.
-              </p>
-              <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-gray-400">
-                <span className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-[#b28f3f] rounded-full animate-pulse" />
-                  Real-time Analysis
-                </span>
-                <span className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-[#b28f3f] rounded-full animate-pulse" />
-                  Secure Infrastructure
-                </span>
-                <span className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-[#b28f3f] rounded-full animate-pulse" />
-                  Institutional Grade
-                </span>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-        */}
+                    {/* Content */}
+                    <div className="relative z-10">
+                      <div className="mb-6 inline-flex p-3 rounded-xl bg-black/30 backdrop-blur-sm border border-white/10 group-hover:border-[#b28f3f]/50 transition-colors duration-300">
+                        <Icon className="w-6 h-6 text-[#b28f3f] group-hover:scale-110 transition-transform duration-300" />
+                      </div>
+                      <h3 className="text-xl font-playfair font-semibold mb-3 text-white group-hover:text-[#fcd770] transition-colors duration-300">
+                        {feature.title}
+                      </h3>
+                      <p className="text-gray-300 text-sm leading-relaxed">
+                        {feature.description}
+                      </p>
+                    </div>
+
+                    {/* Shine effect on hover */}
+                    <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+                  </div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        )}
         <Button variant="outline" className="bg-black border-gray-600 hover:bg-green-500 hover:border-green-500 flex items-center gap-2 w-[fit-content] mx-auto" asChild>
           <Link href="/contact">
             <Mail size={18} />

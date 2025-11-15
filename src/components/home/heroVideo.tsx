@@ -12,7 +12,7 @@ export default function Hero() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="relative min-h-[500px] lg:min-h-screen flex items-center justify-center text-center overflow-hidden"
+      className="relative min-h-[100vh] lg:min-h-screen flex items-center justify-center text-center overflow-hidden"
     >
       {/* Background Video */}
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
