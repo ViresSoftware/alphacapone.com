@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 const bugattiVideo = "/bugatti-smoke.mp4";
 
@@ -56,16 +56,12 @@ export default function LUXMarket() {
           <h2 className="text-4xl lg:text-5xl font-playfair font-semibold">
             LUX Market
           </h2>
-          <p className="text-gray-300 text-base lg:text-lg leading-relaxed max-w-lg mx-auto lg:mx-0">
-            Step into a global exchange for elite digital and tangible assets.
-            LUX Market connects investors, collectors, and institutions through
-            verified, confidential blockchain-secured trades.
-          </p>
+          <p className="text-gray-300 text-base lg:text-lg leading-relaxed max-w-lg mx-auto lg:mx-0">A membership marketplace that connects luxury buyers and sellers. Discover curated luxury items across multiple categories, all verified by our exclusive membership community.</p>
           <Button
             asChild
             className="bg-transparent border border-gray-700 hover:border-yellow-500 hover:bg-yellow-500/10 text-white hover:text-yellow-400 transition-colors px-12 py-6 rounded-xl w-full max-w-[200px]"
           >
-            <Link href="https://luxmarket.app" target="_blank">Explore LUX Market <ArrowRight/></Link>
+            <Link href="https://luxmarket.app" target="_blank">Explore LUX Market<ArrowUpRight className="w-4 h-4" /></Link>
           </Button>
         </motion.div>
       </div>
