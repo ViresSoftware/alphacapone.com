@@ -1,14 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Coins, Wallet, Lock, TrendingUp, Shield, Network } from "lucide-react";
+import { Bitcoin, Wallet, Lock, TrendingUp, Shield, Network } from "lucide-react";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import { Mail } from "lucide-react";
 
 const features = [
   {
-    icon: Coins,
+    icon: Bitcoin,
     title: "Multi-Asset Portfolio",
     description: "Diversified exposure to leading cryptocurrencies including Bitcoin, Ethereum, and premium altcoins through institutional-grade custody solutions.",
     gradient: "from-orange-500/20 to-yellow-500/20",
@@ -86,7 +86,6 @@ export default function CryptoCurrencyInvestments({ showFeatures = true }: Crypt
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
         <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "2s" }} />
       </div>
-
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header Section */}
         <motion.div
@@ -104,7 +103,7 @@ export default function CryptoCurrencyInvestments({ showFeatures = true }: Crypt
             className="inline-flex items-center justify-center mb-6"
           >
             <div className="relative">
-              <Coins className="w-16 h-16 text-[#b28f3f] animate-pulse" />
+              <Bitcoin className="w-16 h-16 text-[#b28f3f] animate-pulse" />
               <div className="absolute inset-0 bg-[#b28f3f]/20 blur-xl rounded-full" />
             </div>
           </motion.div>
