@@ -48,7 +48,7 @@ export default function RestrictedContent({ children }: { children?: React.React
   const verifyOtp = async () => {
     setErrorMessage(""); 
     if (otp.length !== 6) {
-      setErrorMessage("Enter 6-digit OTP.");
+      setErrorMessage("Enter 6-Digit Email Verification Code.");
       return;
     }
     setLoading(true);
@@ -150,8 +150,8 @@ export default function RestrictedContent({ children }: { children?: React.React
               )}
               {step === "otp" && (
                 <Input
-                  type="text"
-                  placeholder="Email Verification Code"
+                  type="number"
+                  placeholder="6-Digit Email Verification Code"
                   value={otp}
                   onChange={(e) => setOtp(e.target.value)}
                   className="text-white"
