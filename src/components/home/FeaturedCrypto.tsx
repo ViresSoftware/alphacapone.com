@@ -43,7 +43,8 @@ interface ChartDataPoint {
   close: number;
 }
 
-type Ticker = 'BTC' | 'ETH' | 'SOL';
+// type Ticker = 'BTC' | 'ETH' | 'SOL';
+type Ticker = 'BTC' | 'XRP' | 'SOL';
 
 interface CryptoPriceData {
   RAW: {
@@ -92,7 +93,7 @@ export default function HomeFeaturedCrypto({ showFeatures = true }: HomeFeatured
   const fetchPriceData = async () => {
     try {
       const response = await axios.get<CryptoPriceData>(
-        'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH,SOL&tsyms=USD'
+        'https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,XRP,SOL&tsyms=USD'
       );
       setPriceData(response.data);
     } catch (error) {
@@ -107,7 +108,6 @@ export default function HomeFeaturedCrypto({ showFeatures = true }: HomeFeatured
 
   const processedChartData: ChartDataPoint[] = useMemo(() => {
     if (!chartData?.Data) return [];
-
     return chartData.Data.map((item) => {
       const date = new Date(item.time * 1000);
       return {
@@ -174,13 +174,15 @@ export default function HomeFeaturedCrypto({ showFeatures = true }: HomeFeatured
 
   const tickerNames: Record<Ticker, string> = {
     BTC: 'Bitcoin',
-    ETH: 'Ethereum',
+    XRP: 'XRP',
+    // ETH: 'Ethereum',
     SOL: 'Solana',
   };
 
   const tickerColors: Record<Ticker, string> = {
     BTC: '#f7931a',
-    ETH: '#8c8c8c',
+    // ETH: '#8c8c8c',
+    XRP: '#397df3',
     SOL: '#a72add',
   };
 
@@ -266,10 +268,9 @@ export default function HomeFeaturedCrypto({ showFeatures = true }: HomeFeatured
         </div>
         {showFeatures && (
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-4">
-            {(['BTC', 'ETH', 'SOL'] as Ticker[]).map((ticker) => {
+            {(['BTC', 'XRP', 'SOL'] as Ticker[]).map((ticker) => {
               const tickerData = getTickerData(ticker);
               const isSelected = selectedTicker === ticker;
-            
               return (
                 <Button
                   key={ticker}
