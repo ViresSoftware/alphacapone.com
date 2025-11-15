@@ -4,6 +4,7 @@ import ArtificialIntelligence from "@/components/investments/ArtificialIntellige
 import FeaturedCrypto from "@/components/home/FeaturedCrypto";
 import CryptoCurrencyInvestments from "@/components/investments/Cryptocurrencies";
 import GoldInvestments from "@/components/investments/Gold";
+import LUXMarket from "@/components/home/LUXMarket";
 // import CommoditiesInvestments from "@/components/investments/Commodities";
 
 export default function IndexPage() {
@@ -14,6 +15,7 @@ export default function IndexPage() {
         <ArtificialIntelligence />
         <FeaturedCrypto />
         <CryptoCurrencyInvestments />
+        <LUXMarket/>
         <GoldInvestments />
         {/* <CommoditiesInvestments /> */}
       </RestrictedContent>
