@@ -30,7 +30,10 @@ export default function RestrictedContent({ children }: { children?: React.React
     }
     setLoading(true);
     try {
-      const res = await axios.post("https://alphacapital1.com/wp-json/prime-listings/v1/email-verification", { email });
+      const res = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_BASE_URL}/wp-json/prime-listings/v1/email-verification`,
+        { email }
+      );
       if (res.data.success) {
         setStep("otp");
         setSuccessMessage("✅ Verification code sent to your email!");
@@ -54,7 +57,7 @@ export default function RestrictedContent({ children }: { children?: React.React
     setLoading(true);
     try {
       const res = await axios.post(
-        "https://alphacapital1.com/wp-json/prime-listings/v1/verify-otp",
+        `${process.env.NEXT_PUBLIC_API_BASE_URL}/wp-json/prime-listings/v1/verify-otp`,
         { email, otp }
       );
       console.log("Email Verification Response:", res.data);
