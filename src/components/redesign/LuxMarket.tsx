@@ -1,10 +1,10 @@
 export default function LuxMarketSection() {
   return (
     <>
-      <div className="sectionTitle">Lux Market™</div>
+      <div className="font-heading tracking-[0.08em] uppercase text-[0.9rem] text-[var(--text-secondary)] mb-2">Lux Market™</div>
       <div className="luxWrapper">
         <div className="luxText">
-          <h2 className="sectionHeading">Lux Market™ – Private Luxury Marketplace</h2>
+          <h2 className="text-[1.4rem] mb-4">Lux Market™ – Private Luxury Marketplace</h2>
           <p>
             An invite-only interface connecting qualified buyers and sellers of
             exotic vehicles, fine art, watches, and other high-value assets.
@@ -13,7 +13,7 @@ export default function LuxMarketSection() {
             Curated listings, not open classifieds. Identity and counterparty
             screening. Integration with our transaction and escrow workflows.
           </p>
-          <button className="buttonPrimary">Request Lux Market Access</button>
+          <button className="w-full md:w-fit px-5 py-3 md:px-[1.8rem] md:py-[0.8rem] rounded-[4px] bg-accent text-[#040509] text-sm md:text-[0.9rem] font-medium tracking-[0.06em] hover:bg-[var(--accent-hover)]">Request Lux Market Access</button>
         </div>
         <div className="luxMockup">
           <div className="mockupPanel">

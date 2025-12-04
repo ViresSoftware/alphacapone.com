@@ -1,8 +1,8 @@
 export default function AccessSection() {
   return (
     <>
-      <div className="sectionTitle">Access</div>
-      <h2 className="sectionHeading">Confidential, Vetted Access Only</h2>
+      <div className="font-heading tracking-[0.08em] uppercase text-[0.9rem] text-[var(--text-secondary)] mb-2">Access</div>
+      <h2 className="text-[1.4rem] mb-4">Confidential, Vetted Access Only</h2>
       <div className="accessWrapper">
         <div className="accessText">
           <p>
@@ -38,7 +38,7 @@ export default function AccessSection() {
             <label>Mandate (one line)</label>
             <input type="text" placeholder="e.g. BTC acquisition, gas oil, art sale" />
           </div>
-          <button type="submit" className="buttonPrimary">
+          <button type="submit" className="w-full md:w-fit px-5 py-3 md:px-[1.8rem] md:py-[0.8rem] rounded-[4px] bg-accent text-[#040509] text-sm md:text-[0.9rem] font-medium tracking-[0.06em] hover:bg-[var(--accent-hover)]">
             Request Introduction
           </button>
         </form>

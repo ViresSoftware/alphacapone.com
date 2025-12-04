@@ -1,8 +1,8 @@
 export default function ProcessSection() {
   return (
     <>
-      <div className="sectionTitle">Process</div>
-      <h2 className="sectionHeading">How We Operate</h2>
+      <div className="font-heading tracking-[0.08em] uppercase text-[0.9rem] text-[var(--text-secondary)] mb-2">Process</div>
+      <h2 className="text-[1.4rem] mb-4">How We Operate</h2>
       <div className="timeline">
         <div className="timelineStep">
           <span className="stepNumber">01</span>

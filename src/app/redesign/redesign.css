@@ -19,40 +19,10 @@
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New";
 }
 
-.sectionTitle {
-  font-family: var(--font-heading);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  margin-bottom: 1.25rem;
-}
-
 h1,
 h2,
 h3 {
   font-family: var(--font-heading);
-  margin: 0;
-}
-
-.buttonPrimary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.8rem 1.8rem;
-  border-radius: 4px;
-  border: none;
-  cursor: pointer;
-  background: var(--accent);
-  color: #040509;
-  font-size: 0.9rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.buttonPrimary:hover {
-  background: var(--accent-hover);
 }
 
 .buttonGhost {
@@ -137,39 +107,8 @@ h3 {
   color: var(--textSecondary);
 }
 
-/* Headings */
-
-.sectionHeading {
-  font-size: 1.4rem;
-  margin-bottom: 1.5rem;
-}
-
-/* Cards */
-
-.cardGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 1.5rem;
-}
-
-.card {
-  background: var(--bg-secondary);
-  border-radius: 14px;
-  padding: 1.5rem;
-  border: 1px solid var(--border-subtle);
-}
-
-.card h3 {
-  font-size: 1rem;
-  margin-bottom: 0.75rem;
-}
-
-.card p {
-  font-size: 0.9rem;
-}
 
 /* Lux Market */
-
 .luxWrapper {
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
@@ -226,25 +165,6 @@ h3 {
 .mockupValue {
   font-size: 0.85rem;
   color: var(--accent);
-}
-
-/* Intelligence list */
-
-.listTwoCol {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.75rem;
-}
-
-.listTwoCol ul {
-  margin: 0;
-  padding-left: 1.1rem;
-}
-
-.listTwoCol li {
-  margin-bottom: 0.6rem;
-  color: var(--text-secondary);
-  font-size: 0.9rem;
 }
 
 /* Timeline */

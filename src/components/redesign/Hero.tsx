@@ -13,7 +13,7 @@ export default function HeroSection() {
           quietly between verified principals, law firms, and private offices.
         </p>
         <div className="heroActions">
-          <button className="buttonPrimary">Request Introduction</button>
+          <button className="inline-flex items-center justify-center px-[1.8rem] py-[0.8rem] rounded-[4px] bg-accent text-[#040509] text-[0.9rem] font-medium tracking-[0.06em] uppercase hover:bg-[var(--accent-hover)]">Request Introduction</button>
           <button className="buttonGhost">
             <span>View our mandates →</span>
           </button>

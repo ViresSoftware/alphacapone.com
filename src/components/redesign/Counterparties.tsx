@@ -1,8 +1,8 @@
 export default function CounterpartiesSection() {
   return (
     <>
-      <div className="sectionTitle">Counterparties</div>
-      <h2 className="sectionHeading">Who We Work With</h2>
+      <div className="font-heading tracking-[0.08em] uppercase text-[0.9rem] text-[var(--text-secondary)] mb-2">Counterparties</div>
+      <h2 className="text-[1.4rem] mb-4">Who We Work With</h2>
       <div className="textBlock">
         <p>
           We typically engage with family offices, private investment companies,

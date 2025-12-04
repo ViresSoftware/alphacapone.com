@@ -9,7 +9,7 @@ import Accessdiv from "@/components/redesign/Access";
 
 export default function RedesignPage() {
   return (
-    <main className="max-w-7xl mx-auto pt-24 pb-12 space-y-10">
+    <main className="max-w-7xl mx-auto pt-24 pb-12 space-y-10 px-6">
       <div>
         <Herodiv />
       </div>
