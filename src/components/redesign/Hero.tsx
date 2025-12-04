@@ -54,7 +54,7 @@ export default function HeroSection() {
           <div className="heroPill flex items-center gap-2 bg-gray-700/40 backdrop-blur-sm px-5 py-2 rounded-full text-white font-medium uppercase text-sm tracking-wide shadow-md hover:scale-105 hover:bg-gray-700/60 transition-all duration-300 cursor-pointer">
             <span className="w-3 h-3 rounded-full bg-accent" /> Energy & Petroleum
           </div>
-          <div className="heroPill flex items-center gap-2 bg-gray-700/40 backdrop-blur-sm px-5 py-2 rounded-full text-white font-medium uppercase text-sm tracking-wide shadow-md hover:scale-105 hover:bg-gray-700/60 transition-all duration-300 cursor-pointer">
+          <div className="heroPill flex items-center gap-2 bg-gray-700/40 backdrop-blur-sm px-5 py-2 rounded-full text-white font-medium uppercase text-sm tracking-wide shadow-md hover:scale-105 hover:bg-gray-700/60 transition-all duration-300">
             <span className="w-3 h-3 rounded-full bg-accent" /> Fine Art & Luxury
           </div>
         </div>
