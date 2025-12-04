@@ -1,0 +1,48 @@
+export default function AccessSection() {
+  return (
+    <>
+      <div className="sectionTitle">Access</div>
+      <h2 className="sectionHeading">Confidential, Vetted Access Only</h2>
+      <div className="accessWrapper">
+        <div className="accessText">
+          <p>
+            We do not offer retail services or public trading. Every engagement
+            is vetted and led by professionals. If you represent a qualified
+            counterparty and wish to discuss a mandate in digital assets,
+            energy, or luxury assets, request a secure introduction.
+          </p>
+        </div>
+        <form className="accessForm">
+          <div className="formRow">
+            <label>Name</label>
+            <input type="text" placeholder="Your name" />
+          </div>
+          <div className="formRow">
+            <label>Entity / Role</label>
+            <input type="text" placeholder="Family office, principal, etc." />
+          </div>
+          <div className="formRow">
+            <label>Email</label>
+            <input type="email" placeholder="you@example.com" />
+          </div>
+          <div className="formRow">
+            <label>Area of Interest</label>
+            <select>
+              <option>Digital Assets</option>
+              <option>Energy & Petroleum</option>
+              <option>Fine Art & Luxury</option>
+              <option>Lux Market Application</option>
+            </select>
+          </div>
+          <div className="formRow">
+            <label>Mandate (one line)</label>
+            <input type="text" placeholder="e.g. BTC acquisition, gas oil, art sale" />
+          </div>
+          <button type="submit" className="buttonPrimary">
+            Request Introduction
+          </button>
+        </form>
+      </div>
+    </>
+  );
+}
