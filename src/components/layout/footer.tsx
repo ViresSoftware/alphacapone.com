@@ -35,7 +35,7 @@ export default function Footer() {
       <div className="max-w-6xl flex flex-col space-y-4 mx-auto sm:justify-between mb-10 items-center">
         <div className="space-y-2 flex flex-col items-center md:items-start">
           <Link href="/#hero" scroll={true}>
-            <Image src={'/logo.png'} alt="Alpha Capital One Logo" width={130} height={40} priority />
+            <Image src={'/logo/logo-metallic-steel.png'} alt="Alpha Capital One Logo" width={130} height={40} priority />
           </Link>
           {/* <p className="font-playfair text-muted-foreground text-xs mt-[-10px] mx-auto">Established 2020</p> */}
         </div>
