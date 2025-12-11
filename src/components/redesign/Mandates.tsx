@@ -30,27 +30,28 @@ export default function MandatesSection() {
   ];
 
   return (
-    <section className="max-w-7xl px-6 mx-auto py-12">
-      <div className="font-heading tracking-[0.08em] uppercase text-[0.9rem] text-[var(--text-secondary)] mb-2">
-        Mandates
-      </div>
-      <h2 className="text-[1.4rem] mb-8">Mandates We Structure</h2>
-
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(230px,1fr))] gap-6">
-        {mandates.map((mandate, idx) => (
-          <Card
-            key={idx}
-            className="bg-[var(--bg-secondary)] border-[1px] border-[var(--border-subtle)] rounded-[14px] p-5 gap-4 hover:shadow-lg transition-shadow"
-          >
-            <CardHeader className="flex items-center gap-3">
-              {mandate.icon}
-              <CardTitle className="text-[1rem] text-white">{mandate.title}</CardTitle>
-            </CardHeader>
-            <CardContent className="text-[0.9rem] text-white">
-              {mandate.description}
-            </CardContent>
-          </Card>
-        ))}
+    <section className="py-12 lg:py-16">
+      <div className="max-w-7xl px-6 mx-auto">
+        <div className="font-heading tracking-[0.08em] uppercase text-[0.9rem] text-[var(--text-secondary)] mb-2">
+          Mandates
+        </div>
+        <h2 className="text-[1.4rem] mb-8">Mandates We Structure</h2>
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(230px,1fr))] gap-6">
+          {mandates.map((mandate, idx) => (
+            <Card
+              key={idx}
+              className="bg-[var(--bg-secondary)] border-[1px] border-[var(--border-subtle)] rounded-[14px] p-5 gap-4 hover:shadow-lg transition-shadow"
+            >
+              <CardHeader className="flex items-center gap-3">
+                {mandate.icon}
+                <CardTitle className="text-[1rem] text-white">{mandate.title}</CardTitle>
+              </CardHeader>
+              <CardContent className="text-[0.9rem] text-white">
+                {mandate.description}
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </div>
     </section>
   );

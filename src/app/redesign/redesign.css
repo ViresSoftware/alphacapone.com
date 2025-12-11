@@ -285,8 +285,4 @@ h3 {
   .accessWrapper {
     grid-template-columns: minmax(0, 1fr);
   }
-
-  .heroRight {
-    order: -1;
-  }
 }

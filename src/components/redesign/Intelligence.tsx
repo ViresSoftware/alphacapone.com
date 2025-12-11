@@ -16,7 +16,6 @@ export default function IntelligenceSection() {
       <h2 className="text-3xl md:text-4xl font-bold text-white mb-12">
         Intelligence & Risk for Real Transactions
       </h2>
-
       <div className="grid md:grid-cols-2 gap-12 items-center">
         {/* Left: Cards */}
         <div className="space-y-4">
@@ -30,7 +29,6 @@ export default function IntelligenceSection() {
             </div>
           ))}
         </div>
-
         {/* Right: Video */}
         <div className="relative w-full flex justify-center md:justify-end">
           <div className="rounded-xl overflow-hidden shadow-xl border border-gray-700">

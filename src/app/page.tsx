@@ -1,24 +1,40 @@
-import Hero from "@/components/home/heroVideo";
+
 import RestrictedContent from "@/components/form/RestrictedContent";
-import ArtificialIntelligence from "@/components/investments/ArtificialIntelligence";
-import FeaturedCrypto from "@/components/home/FeaturedCrypto";
-import CryptoCurrencyInvestments from "@/components/investments/Cryptocurrencies";
-import GoldInvestments from "@/components/investments/Gold";
-import LUXMarket from "@/components/home/LUXMarket";
-// import CommoditiesInvestments from "@/components/investments/Commodities";
+import Hero from "@/components/redesign/Hero";
+import Mandates from "@/components/redesign/Mandates";
+import LuxMarket from "@/components/redesign/LuxMarket";
+import Intelligence from "@/components/redesign/Intelligence";
+import Process from "@/components/redesign/Process";
+import Counterparties from "@/components/redesign/Counterparties";
+import Access from "@/components/redesign/Access";
+import "./redesign/redesign.css";
 
 export default function IndexPage() {
   return (
-    <>
-      <RestrictedContent>
-        <Hero />
-        <ArtificialIntelligence showFeatures={false}/>
-        <FeaturedCrypto/>
-        <CryptoCurrencyInvestments showFeatures={false}/>
-        <LUXMarket/>
-        <GoldInvestments showFeatures={false}/>
-        {/* <CommoditiesInvestments /> */}
-      </RestrictedContent>
-    </>
+    <RestrictedContent>
+      <div className="mx-auto pb-12">
+        <div>
+          <Hero />
+        </div>
+        <div>
+          <Mandates />
+        </div>
+        <div>
+          <LuxMarket />
+        </div>
+        <div>
+          <Intelligence />
+        </div>
+        <div>
+          <Process />
+        </div>
+        <div>
+          <Counterparties />
+        </div>
+        <div>
+          <Access />
+        </div>
+      </div>
+    </RestrictedContent>
   );
 }
