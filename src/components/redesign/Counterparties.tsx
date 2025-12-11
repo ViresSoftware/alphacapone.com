@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function CounterpartiesSection() {
   return (
     <section className="max-w-7xl px-6 md:px-20 mx-auto py-16">
@@ -7,16 +9,16 @@ export default function CounterpartiesSection() {
       <h2 className="text-3xl md:text-4xl font-bold text-white mb-12">
         Who We Work With
       </h2>
-
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <div className="flex justify-center md:justify-start">
-          <img
-            src="/geometric-shape.jpg"
+          <Image
+            src="/images/geometric-shape.jpg"
+            width={500}
+            height={500}
             alt="Counterparties"
             className="rounded-xl shadow-xl border border-gray-700 object-cover"
           />
         </div>
-
         {/* Right: Text */}
         <div className="space-y-6">
           <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 shadow-md">
