@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import { Menu, X, Lock, Bot, Coins, Gem } from "lucide-react";
+import { Menu, X, Lock, Send } from "lucide-react";
 import LoginForm from "../form/Login";
 
 export default function Header() {
@@ -61,7 +61,12 @@ export default function Header() {
     //   icon: Gem,
     // },
     // { href: "/commodities", label: "Commodities" },
-    { href: "/contact", label: "Contact" },
+    {
+      href: "/contact",
+      label: "Contact", 
+      colors: "hover:text-yellow-500",
+      icon: Send,
+    },
   ];
 
   return (

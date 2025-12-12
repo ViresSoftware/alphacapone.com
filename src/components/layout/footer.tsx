@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Bot, Coins, Gem } from "lucide-react";
+import { Send } from "lucide-react";
 
 const navItems = [
   // { 
@@ -27,7 +27,12 @@ const navItems = [
   //   colors: "hover:text-green-500",
   //   icon: Package,
   // },
-  { href: "/contact", label: "Contact" },
+  {
+    href: "/contact",
+    label: "Contact",
+    colors: "hover:text-green-500",
+    icon: Send,
+  },
 ];
 
 export default function Footer() {
