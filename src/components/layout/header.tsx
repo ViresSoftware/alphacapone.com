@@ -42,25 +42,26 @@ export default function Header() {
   }, []);
 
   const navItems = [
-    {
-      href: "/investments/artificial-intelligence",
-      label: "Artificial Intelligence",
-      colors: "hover:text-blue-500",
-      icon: Bot,
-    },
-    { 
-      href: "/investments/cryptocurrencies", 
-      label: "Cryptocurrency", 
-      colors: "hover:text-orange-500",
-      icon: Coins,
-    },
-    { 
-      href: "/investments/gold", 
-      label: "Gold", 
-      colors: "hover:text-yellow-500",
-      icon: Gem,
-    },
+    // {
+    //   href: "/investments/artificial-intelligence",
+    //   label: "Artificial Intelligence",
+    //   colors: "hover:text-blue-500",
+    //   icon: Bot,
+    // },
+    // { 
+    //   href: "/investments/cryptocurrencies", 
+    //   label: "Cryptocurrency", 
+    //   colors: "hover:text-orange-500",
+    //   icon: Coins,
+    // },
+    // { 
+    //   href: "/investments/gold", 
+    //   label: "Gold", 
+    //   colors: "hover:text-yellow-500",
+    //   icon: Gem,
+    // },
     // { href: "/commodities", label: "Commodities" },
+    { href: "/contact", label: "Contact" },
   ];
 
   return (
