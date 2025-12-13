@@ -14,8 +14,8 @@ export const colors = {
   borderSubtle: "#262A35",
   borderHighlight: "#3C4354",
 
-  accent: "#4C8FD9",
-  accentHover: "#3A78BA",
+  accent: "#6E6E6E",
+  accentHover: "#6E6E6E",
 };
 
 export const typography = {
