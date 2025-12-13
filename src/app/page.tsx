@@ -1,7 +1,7 @@
 
 import RestrictedContent from "@/components/form/RestrictedContent";
 import Hero from "@/components/redesign/Hero";
-import Mandates from "@/components/redesign/Mandates";
+// import Mandates from "@/components/redesign/Mandates";
 import LuxMarket from "@/components/redesign/LuxMarket";
 import Intelligence from "@/components/redesign/Intelligence";
 import Process from "@/components/redesign/Process";
@@ -16,9 +16,9 @@ export default function IndexPage() {
         <div>
           <Hero />
         </div>
-        <div>
+        {/* <div>
           <Mandates />
-        </div>
+        </div> */}
         <div>
           <LuxMarket />
         </div>
