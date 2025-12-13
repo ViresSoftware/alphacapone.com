@@ -9,10 +9,10 @@ export default function HeroSection() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="relative w-full h-screen overflow-hidden bg-black"
+      className="relative w-full lg:h-screen bg-black"
     >
       {/* Background Video */}
-      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
+      <div className="absolute inset-0 w-full h-full z-0 lg:overflow-hidden">
         <video
           className="absolute top-1/2 left-1/2 w-auto min-w-full min-h-full object-cover brightness-75"
           style={{ transform: "translate(-50%, -50%)" }}
@@ -32,27 +32,27 @@ export default function HeroSection() {
       </div>
       {/* Hero Content */}
       <div className="flex items-center justify-center max-w-7xl mx-auto h-full">
-        <div className="relative flex flex-col md:flex-row items-center md:justify-between px-6 md:px-24 py-16 space-y-12 z-10">
+        <div className="relative flex flex-col lg:flex-row items-center md:justify-between px-6 md:px-24 pt-24 lg::py-16 space-y-12 z-10">
           <div className="heroLeft max-w-xl space-y-6">
-            <div className="heroEyebrow text-[0.85rem] tracking-[0.1em] uppercase text-gray-400 mb-2">
+            <div className="text-xs md:text-[0.85rem] tracking-[0.1em] uppercase text-gray-400 mb-2">
               PRIVATE • CONFIDENTIAL • INSTITUTIONAL ONLY
             </div>
-            <h1 className="heroTitle text-4xl md:text-6xl font-extrabold text-white leading-tight">
+            <h1 className="text-3xl md:text-6xl font-extrabold text-white leading-tight">
               Private Access to Digital, Energy & Fine Assets
             </h1>
-            <p className="heroSubtitle text-lg md:text-xl text-gray-300 leading-relaxed">
+            <p className="md:text-xl text-gray-300 leading-relaxed">
               Bitcoin, petroleum products, and high-value collectibles structured quietly between verified principals, law firms, and private offices.
             </p>
             <div className="heroActions flex flex-wrap gap-4 mt-4">
-              <Button className="px-8 py-3 rounded-lg bg-accent text-black font-semibold text-sm tracking-wide uppercase hover:bg-[var(--accent-hover)] transition-all duration-300 shadow-lg" asChild>
+              <Button className="w-full sm:w-fit px-8 py-3 rounded-lg bg-accent text-black font-semibold text-sm tracking-wide uppercase hover:bg-[var(--accent-hover)] transition-all duration-300 shadow-lg" asChild>
                 <Link href="/contact">Request Introduction</Link>
               </Button>
-              <button className="inline-flex items-center justify-center px-7 py-3 rounded-lg border border-gray-500 text-gray-200 font-medium text-sm uppercase hover:bg-gray-800/50 transition-colors duration-300">
+              <button className="w-full sm:w-fit inline-flex items-center justify-center px-7 py-3 rounded-lg border border-gray-500 text-gray-200 font-medium text-sm uppercase hover:bg-gray-800/50 transition-colors duration-300">
                 View our mandates →
               </button>
             </div>
           </div>
-          <div className="heroRight flex flex-col gap-4">
+          <div className="heroRight flex flex-col gap-4 p-6 py-8 lg:rounded-2xl">
             <div className="heroPill flex items-center gap-2 bg-gray-700/40 backdrop-blur-sm px-5 py-2 rounded-full text-white font-medium uppercase text-sm tracking-wide shadow-md hover:scale-105 hover:bg-gray-700/60 transition-all duration-300 cursor-pointer">
               <span className="w-3 h-3 rounded-full bg-accent" /> Digital Assets
             </div>
