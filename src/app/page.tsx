@@ -9,6 +9,7 @@ import Counterparties from "@/components/redesign/Counterparties";
 import Access from "@/components/redesign/Access";
 import "./redesign/redesign.css";
 import HomeFeaturedCrypto from "@/components/home/FeaturedCrypto";
+import Services from "@/components/redesign/Services";
 
 export default function IndexPage() {
   return (
@@ -20,6 +21,9 @@ export default function IndexPage() {
         {/* <div>
           <Mandates />
         </div> */}
+        <div>
+          <Services />
+        </div>
         <div>
           <Intelligence />
         </div>
