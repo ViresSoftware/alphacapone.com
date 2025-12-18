@@ -3,12 +3,42 @@
 import { Activity, PieChart, Cpu, Droplet, Feather, TrendingUp } from "lucide-react";
 
 const services = [
-  { name: "Private Equity", icon: Activity },
-  { name: "Investments", icon: PieChart },
-  { name: "Cryptocurrency", icon: Cpu },
-  { name: "Petroleum", icon: Droplet },
-  { name: "Fine Art", icon: Feather },
-  { name: "Tier-One Trading", icon: TrendingUp },
+  {
+    name: "Private Equity",
+    icon: Activity,
+    description:
+      "Sourcing, investing, and divesting in private companies with rigorous due diligence for qualified principals.",
+  },
+  {
+    name: "Investments",
+    icon: PieChart,
+    description:
+      "Structured investment opportunities across multiple asset classes tailored to institutional and high-net-worth clients.",
+  },
+  {
+    name: "Cryptocurrency",
+    icon: Cpu,
+    description:
+      "Acquisition, sale, and custody of digital assets, ensuring secure transactions and regulatory compliance.",
+  },
+  {
+    name: "Petroleum",
+    icon: Droplet,
+    description:
+      "Facilitating purchases and sales of energy commodities, including crude oil, gas, and related derivatives.",
+  },
+  {
+    name: "Fine Art",
+    icon: Feather,
+    description:
+      "Advisory and brokerage for high-value art, collectibles, and luxury assets, maintaining confidentiality and provenance.",
+  },
+  {
+    name: "Tier-One Trading",
+    icon: TrendingUp,
+    description:
+      "Execution of large-scale trades in equities, commodities, and alternative assets with institutional-grade risk management.",
+  },
 ];
 
 export default function Services() {
@@ -38,7 +68,7 @@ export default function Services() {
                 <h3 className="text-xl font-semibold text-white">{service.name}</h3>
               </div>
               <p className="text-gray-300 text-[0.95rem] leading-relaxed">
-                We are buyers and/or sellers in {service.name.toLowerCase()}, providing professional services tailored to qualified counterparties.
+                {service.description}
               </p>
             </div>
           );
