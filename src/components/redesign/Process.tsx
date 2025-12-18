@@ -35,7 +35,7 @@ export default function ProcessSection() {
         {steps.map((step, idx) => (
           <div key={idx} className="mb-12 relative pl-8 md:pl-12">
             {/* Step Number */}
-            <div className="absolute -left-5 md:-left-12 top-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-accent flex items-center justify-center text-black font-bold text-sm md:text-base shadow-lg">
+            <div className="absolute -left-5 md:-left-6 top-0 w-10 h-10 md:w-12 md:h-12 rounded-full bg-accent flex items-center justify-center text-black font-bold text-sm md:text-base shadow-lg">
               {step.number}
             </div>
             {/* Step Content */}

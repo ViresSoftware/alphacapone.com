@@ -206,7 +206,7 @@ export default function HomeFeaturedCrypto({ showFeatures = true }: HomeFeatured
 
   return (
     <section className="bg-black py-8 lg:py-16">
-      <div className="container mx-auto">
+      <div className="max-w-7xl px-6 mx-auto">
         <div className="w-full space-y-4">
           {/* Header with current price */}
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
