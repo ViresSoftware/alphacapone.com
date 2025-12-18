@@ -21,13 +21,13 @@ export default function IndexPage() {
           <Mandates />
         </div> */}
         <div>
-          <LuxMarket />
-        </div>
-        <div>
           <Intelligence />
         </div>
         <div>
           <HomeFeaturedCrypto />
+        </div>
+        <div>
+          <LuxMarket />
         </div>
         <div>
           <Process />
