@@ -1,3 +1,5 @@
+import { SteelButton } from "../SteelButton";
+
 export default function AccessSection() {
   return (
     <section className="relative py-16 px-6 md:px-20 max-w-7xl mx-auto">
@@ -48,13 +50,12 @@ export default function AccessSection() {
               <option>Lux Market Application</option>
             </select>
           </div>
-
-          <button
+          <SteelButton
             type="submit"
-            className="mt-4 w-full md:w-auto px-6 py-3 rounded-xl bg-accent text-black font-semibold tracking-wide hover:bg-[var(--accent-hover)] transition-colors shadow-lg"
+            className="mt-4 w-full md:w-auto"
           >
             Request Introduction
-          </button>
+          </SteelButton>
         </form>
       </div>
     </section>

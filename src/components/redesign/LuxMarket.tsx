@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SteelButton } from "../SteelButton";
 
 export default function LuxMarketSection() {
   return (
@@ -19,9 +20,12 @@ export default function LuxMarketSection() {
           <p className="text-gray-300 leading-relaxed">
             Curated listings, not open classifieds. Identity and counterparty screening. Integration with our transaction and escrow workflows.
           </p>
-          <Link href="https://www.luxmarket.app/" className="inline-flex items-center justify-center px-7 py-3 md:px-8 md:py-3 rounded-lg bg-accent text-black font-semibold text-sm md:text-[0.9rem] tracking-wide uppercase hover:bg-[var(--accent-hover)] shadow-lg transition-all duration-300">
+          <SteelButton
+            href="https://www.luxmarket.app/"
+            className="mt-4 w-full md:w-auto"
+          >
             View Marketpalce
-          </Link>
+          </SteelButton>
         </div>
 
         {/* Right Mockup */}
