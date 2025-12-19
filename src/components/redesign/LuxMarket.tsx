@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
 
 export default function LuxMarketSection() {
   return (
@@ -6,7 +7,6 @@ export default function LuxMarketSection() {
       <div className="font-heading tracking-[0.08em] uppercase text-[0.9rem] text-[var(--text-secondary)] mb-2">
         Lux Market™
       </div>
-
       <div className="flex flex-col-reverse md:flex-row items-start gap-10 md:gap-16">
         {/* Left Text */}
         <div className="luxText max-w-lg space-y-6">
@@ -23,26 +23,18 @@ export default function LuxMarketSection() {
             View Marketpalce
           </Link>
         </div>
-
-        {/* Right Mockup */}
-        <div className="luxMockup w-full ms-auto max-w-sm">
-          <div className="mockupPanel bg-gray-800/60 backdrop-blur-md rounded-2xl p-6 shadow-xl border border-gray-700">
-            <div className="mockupHeader text-lg font-semibold text-white mb-4">
-              Lux Market
-            </div>
-
-            <div className="mockupRow flex justify-between py-2 border-b border-gray-700 last:border-none">
-              <div className="mockupTag text-gray-300 font-medium">Exotic Vehicle</div>
-              <div className="mockupValue text-white font-semibold">Private Listing</div>
-            </div>
-            <div className="mockupRow flex justify-between py-2 border-b border-gray-700 last:border-none">
-              <div className="mockupTag text-gray-300 font-medium">Fine Art</div>
-              <div className="mockupValue text-white font-semibold">Gallery Grade</div>
-            </div>
-            <div className="mockupRow flex justify-between py-2 border-b border-gray-700 last:border-none">
-              <div className="mockupTag text-gray-300 font-medium">Timepiece</div>
-              <div className="mockupValue text-white font-semibold">Waitlisted</div>
-            </div>
+        <div className="w-full ms-auto max-w-sm">
+          <video src="/bugatti-smoke.mp4" autoPlay muted loop className="rounded-xl w-full mb-4" />
+          <div className="flex flex-row justify-center items-center gap-4">
+            <Badge asChild>
+              <Link href="https://luxmarket.app/vehicles" target="_blank">Exotic Vehicles</Link>
+            </Badge>
+            <Badge asChild>
+              <Link href="https://luxmarket.app/explore" target="_blank">Fine Art Pieces</Link>
+            </Badge>
+            <Badge asChild>
+              <Link href="https://luxmarket.app/watches" target="_blank">Luxury Timepieces</Link>
+            </Badge>
           </div>
         </div>
       </div>

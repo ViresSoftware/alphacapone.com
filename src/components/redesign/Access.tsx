@@ -1,3 +1,7 @@
+import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Button } from "@/components/ui/button";
+
 export default function AccessSection() {
   return (
     <section className="relative py-16 px-6 md:px-20 max-w-7xl mx-auto">
@@ -14,7 +18,7 @@ export default function AccessSection() {
             <div className="flex-1 text-[0.95rem] text-gray-300 flex items-start">
               <p className="leading-relaxed">
                 We do not offer retail services or public trading. Every engagement
-                is vetted and led by professionals. If you represent a qualified
+                is vetted and led by professionals. If you represent a qualified 
                 counterparty and wish to discuss a mandate in digital assets,
                 energy, or luxury assets, request a secure introduction.
               </p>
@@ -29,8 +33,8 @@ export default function AccessSection() {
             { label: "Email", placeholder: "you@example.com", type: "email" },
             { label: "Mandate (one line)", placeholder: "e.g. BTC acquisition, gas oil, art sale", type: "text" },
           ].map((field, i) => (
-            <div className="flex flex-col" key={i}>
-              <label className="mb-1 font-medium text-gray-200">{field.label}</label>
+            <div className="flex flex-col space-y-2" key={i}>
+              <Label className="mb-1 font-medium text-gray-200">{field.label}</Label>
               <input
                 type={field.type}
                 placeholder={field.placeholder}
@@ -38,23 +42,26 @@ export default function AccessSection() {
               />
             </div>
           ))}
-
           <div className="flex flex-col">
-            <label className="mb-1 font-medium text-gray-200">Area of Interest</label>
-            <select className="border border-gray-700 rounded-xl px-4 py-3 bg-gray-900 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent shadow-sm">
-              <option>Digital Assets</option>
-              <option>Energy & Petroleum</option>
-              <option>Fine Art & Luxury</option>
-              <option>Lux Market Application</option>
-            </select>
+            <Label className="mb-1 font-medium text-gray-200">Area of Interest</Label>
+            <Select>
+              <SelectTrigger className="border border-gray-700 rounded-xl px-4 py-3 bg-gray-900 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent shadow-sm w-full">
+                <SelectValue placeholder="Select an option" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="Digital Assets">Digital Assets</SelectItem>
+                <SelectItem value="Energy & Petroleum">Energy & Petroleum</SelectItem>
+                <SelectItem value="Fine Art & Luxury">Fine Art & Luxury</SelectItem>
+                <SelectItem value="Lux Market Application">Lux Market Application</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
-
-          <button
+          <Button
             type="submit"
             className="mt-4 w-full md:w-auto px-6 py-3 rounded-xl bg-accent text-black font-semibold tracking-wide hover:bg-[var(--accent-hover)] transition-colors shadow-lg"
           >
             Request Introduction
-          </button>
+          </Button>
         </form>
       </div>
     </section>
