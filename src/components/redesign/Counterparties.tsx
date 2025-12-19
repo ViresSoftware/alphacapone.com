@@ -11,7 +11,7 @@ export default function CounterpartiesSection() {
       </h2>
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <div className="flex justify-center md:justify-start h-[400px]">
-          <video
+          {/* <video
             className="object-cover w-full"
             autoPlay
             muted
@@ -20,7 +20,14 @@ export default function CounterpartiesSection() {
           >
             <source src="/geometric-shape.mp4" type="video/mp4" />
             Your browser does not support the video tag.
-          </video>
+          </video> */}
+          <Image
+            src="/images/geometric-shape.jpg"
+            width={500}
+            height={500}
+            alt="Counterparties"
+            className="rounded-xl shadow-xl border border-gray-700 object-cover"
+          />
         </div>
         {/* Right: Text */}
         <div className="space-y-6">

@@ -10,7 +10,8 @@ export default function RestrictedContent({ children }: { children?: React.React
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
   const [step, setStep] = useState<"email" | "otp">("email");
-  const [isVerified, setIsVerified] = useState(false);
+  // const [isVerified, setIsVerified] = useState(false);
+  const [isVerified, setIsVerified] = useState(true); // test
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState(""); // <-- Added for errors
