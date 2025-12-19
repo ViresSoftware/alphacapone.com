@@ -107,9 +107,9 @@ export default function Header() {
           <span>Secure Login</span>
         </Button>
         {/* Mobile Menu Toggle */}
-        <button className="lg:hidden" onClick={() => setMenuOpen(!menuOpen)}>
+        <Button className="lg:hidden" onClick={() => setMenuOpen(!menuOpen)}>
           {menuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        </Button>
       </div>
       {/* Mobile Nav */}
       {menuOpen && (

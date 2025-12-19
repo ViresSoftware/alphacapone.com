@@ -1,6 +1,6 @@
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Button } from "@/components/ui/button";
+import { SteelButton } from "@/components/SteelButton";
 
 export default function AccessSection() {
   return (
@@ -56,12 +56,12 @@ export default function AccessSection() {
               </SelectContent>
             </Select>
           </div>
-          <Button
+          <SteelButton
             type="submit"
-            className="mt-4 w-full md:w-auto px-6 py-3 rounded-xl bg-accent text-black font-semibold tracking-wide hover:bg-[var(--accent-hover)] transition-colors shadow-lg"
+            className="mt-4 w-full md:w-auto"
           >
             Request Introduction
-          </Button>
+          </SteelButton>
         </form>
       </div>
     </section>
