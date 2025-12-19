@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { SteelButton } from "../SteelButton";
 
 export default function HeroSection() {
   return (
@@ -44,12 +45,15 @@ export default function HeroSection() {
               Bitcoin, petroleum products, and high-value collectibles structured quietly between verified principals, law firms, and private offices.
             </p>
             <div className="heroActions flex flex-wrap gap-4 mt-4">
-              <Button className="w-full sm:w-fit px-8 py-3 rounded-lg bg-accent text-black font-semibold text-sm tracking-wide uppercase hover:bg-[var(--accent-hover)] transition-all duration-300 shadow-lg" asChild>
-                <Link href="/contact">Request Introduction</Link>
-              </Button>
-              <button className="w-full sm:w-fit inline-flex items-center justify-center px-7 py-3 rounded-lg border border-gray-500 text-gray-200 font-medium text-sm uppercase hover:bg-gray-800/50 transition-colors duration-300">
+            <SteelButton
+              href="/contact"
+              className="w-full md:w-auto"
+            >
+              Request Introduction
+            </SteelButton>
+              <Button className="w-full sm:w-fit h-auto inline-flex items-center justify-center px-7 py-3 rounded-lg border border-gray-500 text-gray-200 font-medium text-sm uppercase hover:bg-gray-800/50 transition-colors duration-300">
                 View our mandates →
-              </button>
+              </Button>
             </div>
           </div>
           <div className="heroRight flex flex-col gap-4 p-6 py-8 lg:rounded-2xl">
