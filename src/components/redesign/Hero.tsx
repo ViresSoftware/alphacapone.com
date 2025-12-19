@@ -52,7 +52,7 @@ export default function HeroSection() {
               Request Introduction
             </SteelButton>
               <Button className="w-full sm:w-fit h-auto inline-flex items-center justify-center px-7 py-3 rounded-lg border border-gray-500 text-gray-200 font-medium text-sm uppercase hover:bg-gray-800/50 transition-colors duration-300">
-                View our mandates →
+                View Services
               </Button>
             </div>
           </div>

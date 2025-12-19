@@ -35,7 +35,7 @@ export default function CounterpartiesSection() {
             <p className="text-gray-200 text-[0.95rem] leading-relaxed">
               We typically engage with family offices, private investment companies,
               principals with verifiable holdings in digital assets, energy, or fine assets,
-              licensed law firms, and regulated entities with clear institutional mandates.
+              licensed law firms, and regulated entities.
             </p>
           </div>
           <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 shadow-md">

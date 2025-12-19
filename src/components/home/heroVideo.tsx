@@ -1,8 +1,9 @@
 "use client";
 import { motion } from "framer-motion";
-import Link from "next/link";
-import { Bot, Coins, Gem, Mail } from "lucide-react";
-import { Button } from "../ui/button";
+// import Link from "next/link";
+// import { Bot, Coins, Gem, Mail } from "lucide-react";
+// import { Button } from "../ui/button";
+import { Badge } from "../ui/badge";
 import './hero.css';
 
 export default function Hero() {
@@ -35,9 +36,14 @@ export default function Hero() {
       <div className="text-white relative z-10 px-6 max-w-xl lg:max-w-2xl text-white">
         <h1 className="text-4xl sm:text-5xl lg:text-7xl font-playfair font-semibold mb-4">Alpha Capital One</h1>
         <p className="md:text-lg md:text-xl mb-6">
-          Private Access to the World&apos;s Most Valuable Assets — Secured, Verified, Confidential.
+          Private Access to the World&apos;s Most Valuable Assets
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
+        <div className="flex flex-row gap-2 justify-center items-center">
+          <Badge variant="outline">Secured</Badge>
+          <Badge variant="outline">Verified</Badge>
+          <Badge variant="outline">Confidential</Badge>
+        </div>
+        {/* <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
           <Button variant="outline" className="bg-black hover:text-white border-gray-600 hover:bg-blue-500 hover:border-blue-500 transition-colors flex items-center gap-2" asChild>
             <Link href="/investments/artificial-intelligence">
               <Bot size={18} />
@@ -56,7 +62,7 @@ export default function Hero() {
               <span>Gold</span>
             </Link>
           </Button>
-        </div>
+        </div> */}
       </div>
       {/* Optional dark overlay */}
       <div className="absolute inset-0 bg-black/50 z-[1]" />

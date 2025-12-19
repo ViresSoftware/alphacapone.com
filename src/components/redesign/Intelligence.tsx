@@ -5,7 +5,7 @@ export default function IntelligenceSection() {
     "On-chain and transaction flow analysis.",
     "Counterparty and jurisdictional screening.",
     "Pattern detection for fraud and wash activity.",
-    "Secure data operations tailored to private mandates.",
+    "Secure data operations tailored to private entities.",
   ];
 
   return (
