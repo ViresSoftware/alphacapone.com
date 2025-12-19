@@ -46,10 +46,9 @@ export function SteelButton({
     )
   `
 
-
   const baseClasses = cn(
     `
-    relative overflow-hidden
+    flex flex-row gap-2 items-center justify-center relative overflow-hidden
     px-6 py-3 rounded-lg
     border border-zinc-700
     bg-gradient-to-b from-zinc-500/90 via-zinc-600/80 to-zinc-800
@@ -119,7 +118,7 @@ export function SteelButton({
       <div className="absolute inset-0 rounded-lg 
         shadow-[inset_0_1px_2px_rgba(255,255,255,0.15),inset_0_-1px_1px_rgba(0,0,0,0.3)]" 
       />
-      <span className="relative z-10">{children}</span>
+      <span className="relative z-10 flex flex-row gap-2 items-center justify-center">{children}</span>
     </motion.button>
   )
 
