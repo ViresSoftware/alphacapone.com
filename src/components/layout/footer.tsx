@@ -1,32 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Send } from "lucide-react";
+import { Send, Package } from "lucide-react";
 
 const navItems = [
-  // { 
-  //   href: "/investments/artificial-intelligence", 
-  //   label: "Artificial Intelligence",
-  //   colors: "hover:text-blue-500",
-  //   icon: Bot,
-  // },
-  // { 
-  //   href: "/investments/cryptocurrencies", 
-  //   label: "Cryptocurrency",
-  //   colors: "hover:text-orange-500",
-  //   icon: Coins,
-  // },
-  // { 
-  //   href: "/investments/gold", 
-  //   label: "Gold",
-  //   colors: "hover:text-yellow-500",
-  //   icon: Gem,
-  // },
-  // { 
-  //   href: "/commodities", 
-  //   label: "Commodities",
-  //   colors: "hover:text-green-500",
-  //   icon: Package,
-  // },
+  {
+    href: "/services",
+    label: "Services",
+    colors: "hover:text-green-500",
+    icon: Package,
+  },
   {
     href: "/contact",
     label: "Contact",

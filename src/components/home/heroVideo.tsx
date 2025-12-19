@@ -27,7 +27,8 @@ export default function Hero() {
           loop
           playsInline
         >
-          <source src="/futuristic-bank-vault.mp4" type="video/mp4" />
+          {/* <source src="/futuristic-bank-vault.mp4" type="video/mp4" /> */}
+          <source src="/globe.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <div className="absolute inset-0 bg-black/50 z-[1]" />
@@ -39,9 +40,9 @@ export default function Hero() {
           Private Access to the World&apos;s Most Valuable Assets
         </p>
         <div className="flex flex-row gap-2 justify-center items-center">
-          <Badge variant="outline">Secured</Badge>
-          <Badge variant="outline">Verified</Badge>
-          <Badge variant="outline">Confidential</Badge>
+          <Badge variant="outline" className="text-white">Secured</Badge>
+          <Badge variant="outline" className="text-white">Verified</Badge>
+          <Badge variant="outline" className="text-white">Confidential</Badge>
         </div>
         {/* <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
           <Button variant="outline" className="bg-black hover:text-white border-gray-600 hover:bg-blue-500 hover:border-blue-500 transition-colors flex items-center gap-2" asChild>

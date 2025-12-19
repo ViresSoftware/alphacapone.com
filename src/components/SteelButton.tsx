@@ -39,11 +39,13 @@ export function SteelButton({
 
   const shineBackground = useMotionTemplate`
     radial-gradient(
-      180px circle at ${shineX}px ${shineY}px,
-      rgba(255,255,255,0.12),
-      transparent 60%
+      200px circle at ${shineX}px ${shineY}px,
+      rgba(255,255,255,0.25),
+      rgba(255,255,255,0.1) 40%,
+      transparent 70%
     )
   `
+
 
   const baseClasses = cn(
     `
@@ -68,22 +70,55 @@ export function SteelButton({
       onMouseLeave={() => setHovered(false)}
       className={baseClasses}
     >
-      {/* Permanent steel polish */}
+      {/* Permanent steel polish - subtle base layer */}
       <div className="absolute inset-0 pointer-events-none
-        bg-[linear-gradient(120deg,transparent_30%,rgba(255,255,255,0.08)_50%,transparent_70%)]
-        opacity-60"
+        bg-[linear-gradient(120deg,transparent_30%,rgba(255,255,255,0.06)_50%,transparent_70%)]
+        opacity-50"
       />
-
-      {/* Cursor-following gloss */}
+      {/* Animated sweep shine - moves on hover */}
       <motion.div
-        className="absolute inset-0 pointer-events-none"
-        style={{ background: shineBackground, opacity: hovered ? 1 : 0 }}
-        transition={{ duration: 0.35 }}
+        className="absolute inset-0 pointer-events-none overflow-hidden rounded-lg"
+        style={{
+          opacity: hovered ? 0.8 : 0,
+        }}
+        transition={{ duration: 0.4 }}
+      >
+        <motion.div
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 45%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.3) 55%, transparent 100%)',
+            width: '200%',
+            height: '100%',
+          }}
+          animate={{
+            x: hovered ? ['-100%', '200%'] : '-100%',
+          }}
+          transition={{
+            duration: 1.5,
+            repeat: hovered ? Infinity : 0,
+            ease: 'linear',
+          }}
+        />
+      </motion.div>
+      {/* Cursor-following gloss - enhanced */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none rounded-lg"
+        style={{ 
+          background: shineBackground, 
+          opacity: hovered ? 0.9 : 0,
+          mixBlendMode: 'overlay',
+        }}
+        transition={{ duration: 0.2, ease: 'easeOut' }}
       />
-
-      {/* Inner bevel */}
-      <div className="absolute inset-0 rounded-lg shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]" />
-
+      {/* Top highlight for depth */}
+      <div className="absolute inset-0 rounded-lg 
+        bg-gradient-to-b from-white/10 via-transparent to-transparent
+        pointer-events-none"
+      />
+      {/* Inner bevel - enhanced */}
+      <div className="absolute inset-0 rounded-lg 
+        shadow-[inset_0_1px_2px_rgba(255,255,255,0.15),inset_0_-1px_1px_rgba(0,0,0,0.3)]" 
+      />
       <span className="relative z-10">{children}</span>
     </motion.button>
   )

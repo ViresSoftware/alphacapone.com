@@ -4,8 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import { Menu, X, Lock, Send } from "lucide-react";
-import LoginForm from "../form/Login";
+import { Menu, X, Lock, Send, Package } from "lucide-react";
+import LoginForm from "@/components/form/Login";
+import { SteelButton } from "../SteelButton";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -42,25 +43,12 @@ export default function Header() {
   }, []);
 
   const navItems = [
-    // {
-    //   href: "/investments/artificial-intelligence",
-    //   label: "Artificial Intelligence",
-    //   colors: "hover:text-blue-500",
-    //   icon: Bot,
-    // },
-    // { 
-    //   href: "/investments/cryptocurrencies", 
-    //   label: "Cryptocurrency", 
-    //   colors: "hover:text-orange-500",
-    //   icon: Coins,
-    // },
-    // { 
-    //   href: "/investments/gold", 
-    //   label: "Gold", 
-    //   colors: "hover:text-yellow-500",
-    //   icon: Gem,
-    // },
-    // { href: "/commodities", label: "Commodities" },
+    {
+      href: "/services",
+      label: "Serivces", 
+      colors: "hover:text-white",
+      icon: Package,
+    },
     {
       href: "/contact",
       label: "Contact", 
@@ -97,15 +85,13 @@ export default function Header() {
           ))}
         </nav>
         {/* Secure Login (Desktop) */}
-        <Button
-          variant="outline"
-          size="sm"
-          className="bg-black ml-4 hidden lg:inline-flex flex-row items-center justify-between"
+        <SteelButton
+          className="ml-4 hidden lg:inline-flex flex-row items-center justify-between"
           onClick={() => setLoginDialogOpen(true)}
         >
           <Lock size={18} className="mr-1" />
           <span>Secure Login</span>
-        </Button>
+        </SteelButton>
         {/* Mobile Menu Toggle */}
         <Button className="lg:hidden" onClick={() => setMenuOpen(!menuOpen)}>
           {menuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -126,15 +112,13 @@ export default function Header() {
               {label}
             </Link>
           ))}
-          <Button
-            variant="outline"
-            size="lg"
-            className="bg-black w-full justify-center"
+          <SteelButton
+            className="w-full justify-center"
             onClick={() => setLoginDialogOpen(true)}
           >
             <Lock size={18} className="mr-1" />
             <span className="text-center">Secure Login</span>
-          </Button>
+          </SteelButton>
         </div>
       )}
       <Dialog open={loginDialogOpen} onOpenChange={setLoginDialogOpen}>

@@ -1,8 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { SteelButton } from "../SteelButton";
+import Link from "next/link";
 
 export default function HeroSection() {
   return (
@@ -10,7 +10,7 @@ export default function HeroSection() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="relative w-full lg:h-screen bg-black"
+      className="relative w-full h-screen lg:h-screen bg-black"
     >
       {/* Background Video */}
       <div className="absolute inset-0 w-full h-full z-0 lg:overflow-hidden">
@@ -45,18 +45,20 @@ export default function HeroSection() {
               Bitcoin, petroleum products, and high-value collectibles structured quietly between verified principals, law firms, and private offices.
             </p>
             <div className="heroActions flex flex-wrap gap-4 mt-4">
-            <SteelButton
-              href="/contact"
-              className="w-full md:w-auto"
-            >
-              Request Introduction
-            </SteelButton>
-              <Button className="w-full sm:w-fit h-auto inline-flex items-center justify-center px-7 py-3 rounded-lg border border-gray-500 text-gray-200 font-medium text-sm uppercase hover:bg-gray-800/50 transition-colors duration-300">
-                View Services
+              <SteelButton
+                href="/contact"
+                className="w-full md:w-auto"
+              >
+                Request Introduction
+              </SteelButton>
+              <Button className="w-full sm:w-fit h-auto inline-flex items-center justify-center px-7 py-3 rounded-lg border border-gray-500 text-gray-200 font-medium text-sm uppercase hover:bg-gray-800/50 transition-colors duration-300" asChild>
+                <Link href="/services">
+                  View Services
+                </Link>
               </Button>
             </div>
           </div>
-          <div className="heroRight flex flex-col gap-4 p-6 py-8 lg:rounded-2xl">
+          <div className="heroRight hidden lg:flex flex-col gap-4 p-6 py-8 lg:rounded-2xl">
             <div className="heroPill flex items-center gap-2 bg-gray-700/40 backdrop-blur-sm px-5 py-2 rounded-full text-white font-medium uppercase text-sm tracking-wide shadow-md hover:scale-105 hover:bg-gray-700/60 transition-all duration-300 cursor-pointer">
               <span className="w-3 h-3 rounded-full bg-accent" /> Digital Assets
             </div>
