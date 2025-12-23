@@ -80,10 +80,8 @@ export default function AccessSection() {
             </h2>
             <div className="flex-1 text-[0.95rem] text-gray-300 flex items-start">
               <p className="leading-relaxed">
-                We do not offer retail services or public trading. Every engagement
-                is vetted and led by professionals. If you represent a qualified 
-                counterparty and wish to discuss a mandate in digital assets,
-                energy, or luxury assets, request a secure introduction.
+                Alpha Capital One is a private, access-controlled platform connecting verified principals for select transactions in digital assets, petroleum products, and high-value luxury assets. 
+                We support execution through disciplined onboarding, compliance screening, documentation coordination, and structured settlement workflows.
               </p>
             </div>
           </div>
