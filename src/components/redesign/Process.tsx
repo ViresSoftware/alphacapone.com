@@ -13,7 +13,7 @@ export default function ProcessSection() {
     {
       number: "03",
       title: "Structure & Documentation",
-      description: "Align on SPA, LOI, escrow, and professional involvement.",
+      description: "Align on transaction terms, documentation framework, escrow, and professional involvement.",
     },
     {
       number: "04",
