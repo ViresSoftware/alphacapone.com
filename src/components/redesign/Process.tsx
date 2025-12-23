@@ -3,7 +3,7 @@ export default function ProcessSection() {
     {
       number: "01",
       title: "Introduction & Scope",
-      description: "Qualify the parties, their mandate, and jurisdiction.",
+      description: "Qualify the parties, scope, and jurisdiction.",
     },
     {
       number: "02",
