@@ -1,0 +1,256 @@
+/* Mobile First - Base Styles */
+.trustBadgeContainer {
+  border-radius: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .trustBadgeContainer {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+
+.titleSection {
+  font-size: 14px;
+}
+
+@media screen and (min-width: 585px) {
+  .titleSection {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .titleSection {
+    font-size: 18px;
+  }
+}
+
+.logoContainerItem {
+  height: auto;
+  width: 100%;
+  position: relative;
+  padding: 15px 20px;
+}
+
+.verticalCenter {
+  height: inherit;
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.newsLogo {
+  max-width: 50px;
+  max-height: 33px;
+  min-width: 40px;
+  min-height: 14px;
+  height: auto;
+  width: auto;
+  margin: 5px 8px;
+  overflow: visible;
+}
+
+.newsLogoLink {
+  display: inline-block;
+  position: relative;
+}
+
+.logoContainer {
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  padding: 0 10px;
+}
+
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+}
+
+.title {
+  font-family: sans-serif !important;
+  position: relative;
+  z-index: 1;
+  padding: 0 15px;
+  margin: 0;
+  color: #0e0e0e;
+  display: inline-block;
+  font-size: 14px;
+  letter-spacing: 4px;
+}
+
+.title::before,
+.title::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  border-bottom: 1px solid #d8d8d8;
+  width: 20%;
+}
+
+.title::before {
+  right: 100%;
+  margin-right: 20px;
+}
+
+.title::after {
+  left: 100%;
+  margin-left: 20px;
+}
+
+.footer {
+  text-align: center;
+  padding: 0 15px;
+  font-size: 11px;
+  font-family: sans-serif;
+  font-weight: 600;
+  letter-spacing: 2px;
+  position: relative;
+  width: 100%;
+  margin: 15px 0 8px 0;
+  display: inline-block;
+  color: #a5a5a5;
+}
+
+.leaf {
+  display: none;
+}
+
+.leafFlipped {
+  transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+}
+
+/* Small Mobile (340px and up) */
+@media screen and (min-width: 340px) {
+  .newsLogo {
+    max-width: 60px;
+    margin: 6px 9px;
+  }
+
+  .title {
+    font-size: 15px;
+    letter-spacing: 5px;
+    padding: 0 20px;
+  }
+
+  .title::before,
+  .title::after {
+    width: 22%;
+  }
+
+  .title::before {
+    margin-right: 25px;
+  }
+
+  .title::after {
+    margin-left: 25px;
+  }
+
+  .footer {
+    font-size: 12px;
+    letter-spacing: 2.5px;
+  }
+}
+
+/* Tablet (585px and up) */
+@media screen and (min-width: 585px) {
+  .logoContainerItem {
+    padding: 20px 35px;
+  }
+
+  .newsLogo {
+    max-width: 70px;
+    max-height: 46px;
+    margin: 6px 10px;
+  }
+
+  .logoContainer {
+    padding: 0 15px;
+  }
+
+  .title {
+    font-size: 16px;
+    letter-spacing: 6px;
+    padding: 0 30px;
+  }
+
+  .title::before,
+  .title::after {
+    width: 24%;
+  }
+
+  .title::before {
+    margin-right: 35px;
+  }
+
+  .title::after {
+    margin-left: 35px;
+  }
+
+  .footer {
+    font-size: 12px;
+    letter-spacing: 3px;
+    padding: 0 20px;
+  }
+
+  .leaf {
+    display: block;
+  }
+}
+
+/* Desktop (768px and up) */
+@media screen and (min-width: 768px) {
+  .logoContainerItem {
+    padding: 25px 50px;
+  }
+
+  .newsLogo {
+    max-width: 100px;
+    max-height: 66px;
+    margin: 7px 10px;
+  }
+
+  .logoContainer {
+    padding: 0 20px;
+  }
+
+  .title {
+    font-size: 18px;
+    letter-spacing: 8px;
+    padding: 0 40px;
+  }
+
+  .title::before,
+  .title::after {
+    width: 100%;
+  }
+
+  .title::before {
+    margin-right: 50px;
+  }
+
+  .title::after {
+    margin-left: 50px;
+  }
+
+  .footer {
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin: 0 0 8px 0;
+  }
+}
