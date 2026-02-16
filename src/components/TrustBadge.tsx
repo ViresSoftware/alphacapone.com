@@ -40,39 +40,39 @@ export default function TrustBadge() {
     <div className="w-full mt-2.5">
       <div
         id="brandpush-trust-badge"
-        className={`relative w-full bg-white min-h-[180px] mx-auto ${styles.trustBadgeContainer}`}
+        className="relative w-full bg-black min-h-[180px] mx-auto rounded-none py-5 md:py-8"
       >
-        <div className={`text-center px-[5px] pb-2.5 font-sans font-semibold leading-[1.3] ${styles.titleSection}`}>
-          <div className={`h-[58px] ${styles.titleWrapper}`}>
-            <span className={styles.title}>
+        <div className="text-white text-center px-[5px] pb-2.5 font-sans font-semibold leading-[1.3] text-sm sm:text-base md:text-lg">
+          <div className="h-[58px] flex items-center justify-center w-full relative">
+            <span className={`${styles.title} text-white`}>
               AS SEEN ON
             </span>
           </div>
-          <div className={styles.logoContainer}>
+          <div className="text-center mx-auto flex items-center justify-between flex-nowrap flex-row px-2.5 sm:px-4 md:px-5">
             <img
               src={trustReefImageUrl}
               alt="Trust Reef"
-              className={`${styles.leaf} absolute h-[110px] left-6 m-0 p-0 z-0 opacity-20`}
+              className="hidden sm:block absolute h-[110px] left-6 m-0 p-0 z-0 opacity-20"
             />
             <img
               src={trustReefImageUrl}
               alt="Trust Reef"
-              className={`${styles.leaf} ${styles.leafFlipped} absolute h-[110px] right-6 m-0 p-0 z-0 opacity-20`}
+              className={`${styles.leafFlipped} hidden sm:block absolute h-[110px] right-6 m-0 p-0 z-0 opacity-20`}
             />
-            <div className={styles.logoContainerItem}>
-              <div className={styles.verticalCenter}>
+            <div className="w-full relative py-4 px-5 sm:py-5 sm:px-9 md:py-6 md:px-12">
+              <div className="h-full flex flex-wrap flex-row justify-center items-center">
                 {newsLogos.map((logo) => (
                   <Link
                     key={logo.name}
                     href={logo.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={styles.newsLogoLink}
+                    className="inline-block relative"
                   >
                     <img
                       src={logo.imageUrl}
                       alt={logo.alt}
-                      className={styles.newsLogo}
+                      className={`${styles.newsLogo} max-w-[50px] max-h-[33px] min-w-[40px] min-h-[14px] h-auto w-auto my-1 mx-2 overflow-visible min-[340px]:max-w-[60px] min-[340px]:my-2 sm:max-w-[70px] sm:max-h-[46px] sm:mx-3 md:max-w-[100px] md:max-h-[66px]`}
                     />
                   </Link>
                 ))}
@@ -80,22 +80,22 @@ export default function TrustBadge() {
             </div>
           </div>
           <div className="mt-0 font-sans">
-            <span className={styles.footer}>
+            <span className={`${styles.footer} text-white`}>
               AND OVER 350 NEWS SITES
             </span>
-            <div className="flex items-center justify-center text-[#717171] text-[10px] tracking-normal h-[15px] mt-0.5">
+            <div className="flex items-center justify-center text-white text-[10px] tracking-normal h-[15px] mt-0.5">
               <img
                 src={verifiedIconUrl}
                 alt="Verified"
                 className="w-3 mr-1"
               />
-              <span className="font-sans">
+              <span className="font-sans text-white">
                 Verified by{" "}
                 <Link
                   href={brandPushUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#717171] hover:underline"
+                  className="text-white hover:underline"
                 >
                   BrandPush.co
                 </Link>
