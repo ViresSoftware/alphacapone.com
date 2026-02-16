@@ -51,6 +51,11 @@
   -webkit-filter: brightness(0) invert(1);
 }
 
+.trustReef {
+  filter: brightness(0) invert(1);
+  -webkit-filter: brightness(0) invert(1);
+}
+
 @media screen and (min-width: 340px) {
   .title {
     font-size: 15px;

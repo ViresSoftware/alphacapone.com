@@ -32,8 +32,6 @@ const newsLogos: NewsLogo[] = [
 ];
 
 const trustReefImageUrl = "https://www.brandpush.co/cdn-cgi/imagedelivery/gKm6BYVdHCj_SVQET_Msrw/3fb10293-8878-4ce5-5496-cef376fe9300/public";
-const verifiedIconUrl = "https://www.brandpush.co/cdn-cgi/imagedelivery/gKm6BYVdHCj_SVQET_Msrw/5e5b9b47-6288-4640-2b2a-cd2459605c00/public";
-const brandPushUrl = "https://www.brandpush.co?utm_source=Client+Referral&utm_medium=Trust+Badge&utm_campaign=Trust+Badge&utm_content=1765610600832";
 
 export default function TrustBadge() {
   return (
@@ -52,12 +50,12 @@ export default function TrustBadge() {
             <img
               src={trustReefImageUrl}
               alt="Trust Reef"
-              className="hidden sm:block absolute h-[110px] left-6 m-0 p-0 z-0 opacity-20"
+              className={`${styles.trustReef} hidden sm:block absolute h-[110px] left-6 m-0 p-0 z-0 opacity-20`}
             />
             <img
               src={trustReefImageUrl}
               alt="Trust Reef"
-              className={`${styles.leafFlipped} hidden sm:block absolute h-[110px] right-6 m-0 p-0 z-0 opacity-20`}
+              className={`${styles.trustReef} ${styles.leafFlipped} hidden sm:block absolute h-[110px] right-6 m-0 p-0 z-0 opacity-20`}
             />
             <div className="w-full relative py-4 px-5 sm:py-5 sm:px-9 md:py-6 md:px-12">
               <div className="h-full flex flex-wrap flex-row justify-center items-center">
@@ -83,24 +81,6 @@ export default function TrustBadge() {
             <span className={`${styles.footer} text-white`}>
               AND OVER 350 NEWS SITES
             </span>
-            <div className="flex items-center justify-center text-white text-[10px] tracking-normal h-[15px] mt-0.5">
-              <img
-                src={verifiedIconUrl}
-                alt="Verified"
-                className="w-3 mr-1"
-              />
-              <span className="font-sans text-white">
-                Verified by{" "}
-                <Link
-                  href={brandPushUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white hover:underline"
-                >
-                  BrandPush.co
-                </Link>
-              </span>
-            </div>
           </div>
         </div>
       </div>
