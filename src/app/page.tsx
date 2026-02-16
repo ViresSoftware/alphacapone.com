@@ -11,6 +11,7 @@ import HomeFeaturedCrypto from "@/components/home/FeaturedCrypto";
 import Services from "@/components/redesign/Services";
 // import TrustBadge from "@/components/TrustBadge";
 import "./redesign/redesign.css";
+import TrustBadge from "@/components/TrustBadge";
 
 export default function IndexPage() {
   return (
@@ -43,9 +44,9 @@ export default function IndexPage() {
         <div>
           <Access />
         </div>
-        {/* <div>
+        <div>
           <TrustBadge />
-        </div> */}
+        </div>
       </div>
     </RestrictedContent>
   );
