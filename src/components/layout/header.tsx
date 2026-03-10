@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-import { Menu, X, Lock, Send, Package } from "lucide-react";
+import { Menu, X, Lock, Send, Package, FileStack } from "lucide-react";
 import LoginForm from "@/components/form/Login";
 import { SteelButton } from "../SteelButton";
 
@@ -45,13 +45,19 @@ export default function Header() {
   const navItems = [
     {
       href: "/services",
-      label: "Serivces", 
+      label: "Serivces",
       colors: "hover:text-white",
       icon: Package,
     },
     {
+      href: "/non-qm-loan-acquisitions",
+      label: "Non-QM Loans",
+      colors: "hover:text-white",
+      icon: FileStack,
+    },
+    {
       href: "/contact",
-      label: "Contact", 
+      label: "Contact",
       colors: "hover:text-white",
       icon: Send,
     },

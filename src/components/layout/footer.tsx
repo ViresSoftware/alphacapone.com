@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Send, Package } from "lucide-react";
+import { Send, Package, FileStack } from "lucide-react";
 
 const navItems = [
   {
@@ -8,6 +8,12 @@ const navItems = [
     label: "Services",
     colors: "hover:text-green-500",
     icon: Package,
+  },
+  {
+    href: "/non-qm-loan-acquisitions",
+    label: "Non-QM Loans",
+    colors: "hover:text-green-500",
+    icon: FileStack,
   },
   {
     href: "/contact",
