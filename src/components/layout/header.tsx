@@ -51,7 +51,7 @@ export default function Header() {
     },
     {
       href: "/non-qm-loan-acquisitions",
-      label: "Non-QM Loans",
+      label: "Non-QM Loan Acquisitions",
       colors: "hover:text-white",
       icon: FileStack,
     },
