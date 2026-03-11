@@ -20,17 +20,14 @@ export default function NonQMLoanAcquisitionsPage() {
           description="Private access to Non-QM portfolio liquidity for qualified sellers."
           backgroundImage="/signed-paperwork.jpg"
         />
-
         <section className="max-w-4xl px-6 md:px-20 mx-auto py-12 md:py-16">
           <p className="text-[var(--text-primary)] text-lg md:text-xl leading-relaxed">
             Alpha Capital One acquires performing residential Non-QM loan portfolios through a confidential and disciplined transaction process. We work with lenders, originators, portfolio managers, and note holders seeking a credible buyer capable of efficient review, clear communication, and reliable execution.
           </p>
         </section>
-
         <NonQMLoanAcquisitionsWhatWeDo />
         <NonQMLoanAcquisitionsCapabilities />
         <OurProcess />
-
         <section
           className="relative bg-cover bg-center"
           // style={{
