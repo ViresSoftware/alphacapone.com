@@ -98,9 +98,12 @@ export default function AccessSection() {
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="w-full flex flex-col gap-5 bg-gray-800/50 backdrop-blur-sm p-6 md:p-8 rounded-xl border border-gray-700 shadow-md">
-            <div className="flex flex-col space-y-2">
-              <Label className="mb-1 font-medium text-gray-200">Name *</Label>
+            <div className="flex flex-col gap-3">
+              <Label htmlFor="access-name" className="font-medium text-gray-200">
+                Name *
+              </Label>
               <input
+                id="access-name"
                 type="text"
                 name="name"
                 value={formData.name}
@@ -110,9 +113,12 @@ export default function AccessSection() {
                 className="border border-gray-700 rounded-xl px-4 py-3 bg-gray-900 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent shadow-sm"
               />
             </div>
-            <div className="flex flex-col space-y-2">
-              <Label className="mb-1 font-medium text-gray-200">Entity / Role</Label>
+            <div className="flex flex-col gap-3">
+              <Label htmlFor="access-entity-role" className="font-medium text-gray-200">
+                Entity / Role
+              </Label>
               <input
+                id="access-entity-role"
                 type="text"
                 name="entityRole"
                 value={formData.entityRole}
@@ -121,9 +127,12 @@ export default function AccessSection() {
                 className="border border-gray-700 rounded-xl px-4 py-3 bg-gray-900 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent shadow-sm"
               />
             </div>
-            <div className="flex flex-col space-y-2">
-              <Label className="mb-1 font-medium text-gray-200">Email *</Label>
+            <div className="flex flex-col gap-3">
+              <Label htmlFor="access-email" className="font-medium text-gray-200">
+                Email *
+              </Label>
               <input
+                id="access-email"
                 type="email"
                 name="email"
                 value={formData.email}
@@ -133,14 +142,19 @@ export default function AccessSection() {
                 className="border border-gray-700 rounded-xl px-4 py-3 bg-gray-900 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent shadow-sm"
               />
             </div>
-            <div className="flex flex-col">
-              <Label className="mb-1 font-medium text-gray-200">Area of Interest *</Label>
+            <div className="flex flex-col gap-3">
+              <Label htmlFor="access-area-of-interest" className="font-medium text-gray-200">
+                Area of Interest *
+              </Label>
               <Select
                 value={formData.areaOfInterest}
                 onValueChange={(value) => setFormData({ ...formData, areaOfInterest: value })}
                 required
               >
-                <SelectTrigger className="border border-gray-700 rounded-xl px-4 py-3 bg-gray-900 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent shadow-sm w-full">
+                <SelectTrigger
+                  id="access-area-of-interest"
+                  className="border border-gray-700 rounded-xl px-4 py-3 bg-gray-900 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent shadow-sm w-full"
+                >
                   <SelectValue placeholder="Select an option" />
                 </SelectTrigger>
                 <SelectContent>
