@@ -61,12 +61,20 @@ export default function Footer() {
         <p className="text-[#b28f3f]">
           This site is confidential and monitored. Unauthorized use is prohibited.
         </p>
-        <a
-          href="/privacy"
-          className="underline opacity-50 hover:opacity-100"
-        >
-          Privacy Policy
-        </a>
+        <div className="flex items-center justify-center gap-4">
+          <Link
+            href="/privacy"
+            className="underline opacity-50 hover:opacity-100"
+          >
+            Privacy Policy
+          </Link>
+          <Link
+            href="/mutual-ncnda"
+            className="underline opacity-50 hover:opacity-100"
+          >
+            Mutual NCNDA
+          </Link>
+        </div>
       </div>
     </footer>
   );
