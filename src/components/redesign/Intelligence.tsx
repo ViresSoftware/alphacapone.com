@@ -1,13 +1,11 @@
-"use client";
+const intelligencePoints = [
+  "On-chain and transaction flow analysis.",
+  "Counterparty and jurisdictional screening.",
+  "Pattern detection for fraud and wash activity.",
+  "Secure data operations tailored to private entities.",
+];
 
 export default function IntelligenceSection() {
-  const intelligencePoints = [
-    "On-chain and transaction flow analysis.",
-    "Counterparty and jurisdictional screening.",
-    "Pattern detection for fraud and wash activity.",
-    "Secure data operations tailored to private entities.",
-  ];
-
   return (
     <section className="max-w-7xl px-6 mx-auto py-16">
       <div className="font-heading tracking-[0.08em] uppercase text-[0.9rem] text-[var(--text-secondary)] mb-2">

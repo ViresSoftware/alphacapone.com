@@ -1,5 +1,3 @@
-'use client';
-
 import { Activity, PieChart, Cpu, Droplet, Feather, TrendingUp } from "lucide-react";
 
 const services = [
