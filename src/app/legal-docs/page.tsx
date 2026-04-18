@@ -20,7 +20,11 @@ export const metadata: Metadata = {
 export default function LegalDocsPage() {
   return (
     <RestrictedContent>
-      <PageHero />
+      <PageHero
+        title="Legal Docs"
+        description="View and download Alpha Capital One legal documents including the Applicant CIS, capabilities brief, Mutual NCNDA, and Non-QM loan services overview."
+        showScrollDown
+      />
       <LegalDocsPageContent />
     </RestrictedContent>
   );
