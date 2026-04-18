@@ -1,4 +1,5 @@
 import { Activity, PieChart, Cpu, Droplet, Feather, TrendingUp } from "lucide-react";
+import { SteelButton } from "@/components/SteelButton";
 
 const services = [
   {
@@ -79,6 +80,14 @@ export default function Services() {
               </div>
             );
           })}
+        </div>
+        <div className="relative max-w-3xl mx-auto py-16 text-center">
+          <p className="text-xl md:text-2xl text-white font-medium mb-8 leading-relaxed">
+            To discuss mandates, transaction structure, and verified access to our service platform, contact Alpha Capital One.
+          </p>
+          <div className="text-center flex justify-center">
+            <SteelButton href="/contact">Contact Us</SteelButton>
+          </div>
         </div>
       </div>
     </section>
