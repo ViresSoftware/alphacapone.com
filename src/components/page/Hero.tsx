@@ -14,11 +14,11 @@ export default function PageHero({
   title = "Alpha Capital One",
   description = "Private Access to the World's Most Valuable Assets",
   showScrollDown = false,
-}: PageHeroProps) {
+}: PageHeroProps) {  
+
   const scrollToNextSection = () => {
     const heroSection = document.getElementById("hero");
     const nextSection = heroSection?.nextElementSibling;
-
     if (nextSection instanceof HTMLElement) {
       nextSection.scrollIntoView({ behavior: "smooth", block: "start" });
     }
