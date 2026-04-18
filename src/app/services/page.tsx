@@ -20,7 +20,11 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <RestrictedContent>
-      <PageHero />
+      <PageHero
+        title="Services"
+        description="Private equity, structured investments, cryptocurrency custody, petroleum, fine art, and tier-one trading services for verified institutional principals."
+        showScrollDown
+      />
       <Services />
     </RestrictedContent>
   );

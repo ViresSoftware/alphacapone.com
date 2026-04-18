@@ -1,24 +1,30 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Send, Package, FileStack } from "lucide-react";
+import { Send, Package, FileStack, FileText } from "lucide-react";
 
 const navItems = [
   {
     href: "/services",
     label: "Services",
-    colors: "hover:text-green-500",
+    colors: "hover:text-white",
     icon: Package,
   },
   {
     href: "/non-qm-loan-acquisitions",
     label: "Non-QM Loans",
-    colors: "hover:text-green-500",
+    colors: "hover:text-white",
     icon: FileStack,
+  },
+  {
+    href: "/legal-docs",
+    label: "Legal Docs",
+    colors: "hover:text-white",
+    icon: FileText,
   },
   {
     href: "/contact",
     label: "Contact",
-    colors: "hover:text-green-500",
+    colors: "hover:text-white",
     icon: Send,
   },
 ];

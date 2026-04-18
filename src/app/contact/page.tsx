@@ -20,7 +20,11 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <RestrictedContent>
-      <PageHero />
+      <PageHero
+        title="Contact"
+        description="Submit a confidential inquiry to Alpha Capital One. We respond only to verified principals, family offices, and regulated entities."
+        showScrollDown
+      />
       <ContactForm />
     </RestrictedContent>
   );
