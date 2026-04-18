@@ -6,20 +6,31 @@ import axios from "axios";
 import { Lock, LockOpen } from "lucide-react";
 import { Button } from "../ui/button";
 
+const websiteRestrictedAccessEnabled =
+  process.env.NEXT_PUBLIC_WEBSITE_RESTRICTED_ACCESS?.toLowerCase() === "true";
+
 export default function RestrictedContent({ children }: { children?: React.ReactNode }) {
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
   const [step, setStep] = useState<"email" | "otp">("email");
-  // const [isVerified, setIsVerified] = useState(false);
-  const [isVerified, setIsVerified] = useState(false); // test
+  const [isVerified, setIsVerified] = useState(false);
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState(""); // <-- Added for errors
 
   useEffect(() => {
+    if (!websiteRestrictedAccessEnabled) {
+      setIsVerified(true);
+      return;
+    }
+
     const verified = localStorage.getItem("emailVerified");
     if (verified === "true") setIsVerified(true);
   }, []);
+
+  if (!websiteRestrictedAccessEnabled) {
+    return <>{children}</>;
+  }
 
   const validateEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
