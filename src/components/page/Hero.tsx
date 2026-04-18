@@ -1,9 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ChevronsDown } from "lucide-react";
 import { Badge } from "../ui/badge";
 
-export default function PageHero() {
+interface PageHeroProps {
+  showScrollDown?: boolean;
+}
+
+export default function PageHero({ showScrollDown = false }: PageHeroProps) {
+  const scrollToNextSection = () => {
+    const heroSection = document.getElementById("hero");
+    const nextSection = heroSection?.nextElementSibling;
+
+    if (nextSection instanceof HTMLElement) {
+      nextSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <motion.section
       id="hero"
@@ -41,6 +55,22 @@ export default function PageHero() {
           <Badge variant="outline" className="text-white">Confidential</Badge>
         </div>
       </div>
+      {showScrollDown && (
+        <button
+          type="button"
+          onClick={scrollToNextSection}
+          aria-label="Scroll to next section"
+          className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 rounded-full border border-white/30 bg-black/25 p-3 text-white backdrop-blur-sm transition hover:border-white/70 hover:bg-black/40"
+        >
+          <motion.span
+            animate={{ y: [0, 6, 0] }}
+            transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+            className="flex items-center justify-center"
+          >
+            <ChevronsDown className="h-7 w-7" />
+          </motion.span>
+        </button>
+      )}
       <div className="absolute inset-0 bg-black/50 z-[1]" />
     </motion.section>
   );

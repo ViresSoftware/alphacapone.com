@@ -28,7 +28,13 @@ const documents: LegalDoc[] = [
     description:
       "Optimize Balance Sheet, Why Partner, Contact Info, Getting Started, Transaction Execution Timeline, Financial Impact & more",
   },
-];
+  {
+    name: "Mutual Non-Circumvention, Non-Disclosure and Confidentiality Agreement",
+    file: "/pdfs/Mutual-NCNDA.pdf",
+    description:
+      "Mutual protections for confidentiality, non-disclosure, and non-circumvention during prospective transaction discussions and engagement.",
+  },
+].sort((a, b) => a.name.localeCompare(b.name));
 
 function fileNameFromPath(path: string) {
   return path.split("/").pop() ?? path;

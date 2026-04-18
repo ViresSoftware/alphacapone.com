@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 export default function LegalDocsPage() {
   return (
     <RestrictedContent>
-      <PageHero />
+      <PageHero showScrollDown />
       <LegalDocsPageContent />
     </RestrictedContent>
   );

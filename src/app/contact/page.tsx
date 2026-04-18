@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <RestrictedContent>
-      <PageHero />
+      <PageHero showScrollDown />
       <ContactForm />
     </RestrictedContent>
   );
