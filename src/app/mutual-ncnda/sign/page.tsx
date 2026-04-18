@@ -24,6 +24,7 @@ export default function MutualNcndaSignPage() {
         title="Request Private Access"
         description="Sign the Mutual NCNDA to unlock off-market opportunities with Alpha Capital One."
         backgroundImage="/signed-paperwork.jpg"
+        showScrollDown
       />
       <NdaFlow />
     </>
