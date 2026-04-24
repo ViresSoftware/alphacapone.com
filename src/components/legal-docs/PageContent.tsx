@@ -34,6 +34,12 @@ const documents: LegalDoc[] = [
     description:
       "Mutual protections for confidentiality, non-disclosure, and non-circumvention during prospective transaction discussions and engagement.",
   },
+  {
+    name: "Conditional Closing Fee Agreement",
+    file: "/legal-docs/Conditional-Closing-Fee-Agreement.pdf",
+    description:
+      "Conditional closing fee terms payable upon successful transaction closing between the parties.",
+  },
 ].sort((a, b) => a.name.localeCompare(b.name));
 
 function fileNameFromPath(path: string) {
