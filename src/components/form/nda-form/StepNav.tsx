@@ -1,7 +1,7 @@
 "use client"
 
 import { Fragment } from "react"
-import { Check, ChevronRight } from "lucide-react"
+import { Check } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 export type NdaFlowStep = "nda" | "buyer" | "done"
@@ -9,6 +9,7 @@ export type NdaFlowStep = "nda" | "buyer" | "done"
 const steps: { id: NdaFlowStep; label: string; number: number }[] = [
   { id: "nda", label: "Sign NDA", number: 1 },
   { id: "buyer", label: "Buyer Profile", number: 2 },
+  { id: "done", label: "Approval", number: 3 },
 ]
 
 function stepRank(s: NdaFlowStep) {
@@ -19,45 +20,47 @@ export default function StepNav({ currentStep }: { currentStep: NdaFlowStep }) {
   const rank = stepRank(currentStep)
 
   return (
-    <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+    <ol className="flex flex-wrap items-center gap-x-3 gap-y-2 sm:gap-x-4">
       {steps.map((step, i) => {
         const isActive = currentStep === step.id
         const isComplete = rank > step.number
         return (
           <Fragment key={step.id}>
-            <div
+            <li
               className={cn(
-                "flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs sm:text-sm font-medium transition-colors",
-                isActive &&
-                  "border-[#fcd770]/50 bg-[#fcd770]/10 text-[#fcd770]",
-                isComplete &&
-                  "border-[#fcd770]/30 bg-[#fcd770]/5 text-[#fcd770]/80",
-                !isActive &&
-                  !isComplete &&
-                  "border-white/10 bg-white/5 text-white/60"
+                "flex items-center gap-2.5 text-xs font-medium uppercase tracking-[0.08em] sm:text-sm",
+                isActive && "text-[#fcd770]",
+                isComplete && "text-[#fcd770]/80",
+                !isActive && !isComplete && "text-gray-400"
               )}
             >
               <span
                 className={cn(
-                  "flex h-5 w-5 items-center justify-center rounded-full text-[11px]",
-                  isActive && "bg-[#fcd770] text-black",
-                  isComplete && "bg-[#fcd770]/80 text-black",
-                  !isActive && !isComplete && "bg-white/10 text-white/70"
+                  "flex h-7 w-7 items-center justify-center rounded-full border text-[12px] transition-colors",
+                  isActive && "border-[#fcd770] bg-[#fcd770] text-black",
+                  isComplete &&
+                    "border-[#fcd770]/60 bg-[#fcd770]/15 text-[#fcd770]",
+                  !isActive &&
+                    !isComplete &&
+                    "border-gray-700 bg-gray-800/60 text-gray-400"
                 )}
               >
-                {isComplete ? <Check className="h-3 w-3" /> : step.number}
+                {isComplete ? <Check className="h-3.5 w-3.5" /> : step.number}
               </span>
-              {step.label}
-            </div>
+              <span className="hidden sm:inline">{step.label}</span>
+            </li>
             {i < steps.length - 1 && (
-              <ChevronRight
-                className="h-4 w-4 text-white/30"
+              <span
                 aria-hidden="true"
+                className={cn(
+                  "h-px w-8 sm:w-12",
+                  isComplete ? "bg-[#fcd770]/40" : "bg-gray-700"
+                )}
               />
             )}
           </Fragment>
         )
       })}
-    </div>
+    </ol>
   )
 }

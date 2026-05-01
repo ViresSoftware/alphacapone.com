@@ -4,16 +4,19 @@ import { useMemo, useState } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import {
+  AlertCircle,
   Building2,
   Calendar,
   ChevronRight,
   Mail,
+  PenLine,
   Phone,
   ShieldCheck,
   Users,
   UserRound,
 } from "lucide-react"
 
+import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -44,11 +47,33 @@ const todayFormatted = () =>
 
 function FieldError({ message }: { message?: string }) {
   if (!message) return null
-  return <p className="mt-1 text-xs text-red-400">{message}</p>
+  return <p className="mt-1.5 text-xs text-red-400">{message}</p>
 }
 
 function RequiredMark() {
   return <span className="ml-0.5 text-red-400">*</span>
+}
+
+function SectionHeader({
+  Icon,
+  eyebrow,
+  title,
+}: {
+  Icon: typeof ShieldCheck
+  eyebrow: string
+  title: string
+}) {
+  return (
+    <div className="mb-5">
+      <div className="flex items-center gap-2">
+        <Icon className="h-4 w-4 text-[#fcd770]" />
+        <span className="font-heading text-[0.8rem] uppercase tracking-[0.12em] text-[var(--text-secondary)]">
+          {eyebrow}
+        </span>
+      </div>
+      <h3 className="mt-1 text-lg font-semibold text-white">{title}</h3>
+    </div>
+  )
 }
 
 interface Props {
@@ -135,24 +160,27 @@ export default function NdaForm({ defaultValues, onComplete }: Props) {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-8">
+    <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-10 py-6">
       {/* NDA text */}
-      <NdaLegalText />
+      <section>
+        <NdaLegalText />
+      </section>
+
+      <div className="h-px w-full bg-gray-700/60" />
 
       {/* Your Information */}
-      <div>
-        <div className="mb-4 flex items-center gap-2">
-          <ShieldCheck className="h-4 w-4 text-[#fcd770]" />
-          <h3 className="text-sm font-semibold uppercase tracking-[0.1em] text-white/70">
-            Your Information
-          </h3>
-        </div>
+      <section>
+        <SectionHeader
+          Icon={ShieldCheck}
+          eyebrow="Your Information"
+          title="Tell us who is signing"
+        />
 
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
           {/* Full name */}
           <div>
-            <Label htmlFor="fullName" className="mb-1.5 text-white/80">
-              <UserRound className="h-3.5 w-3.5 text-white/50" />
+            <Label htmlFor="fullName" className="mb-1.5 text-gray-200">
+              <UserRound className="h-3.5 w-3.5 text-gray-400" />
               Full Legal Name
               <RequiredMark />
             </Label>
@@ -168,8 +196,8 @@ export default function NdaForm({ defaultValues, onComplete }: Props) {
 
           {/* Email */}
           <div>
-            <Label htmlFor="email" className="mb-1.5 text-white/80">
-              <Mail className="h-3.5 w-3.5 text-white/50" />
+            <Label htmlFor="email" className="mb-1.5 text-gray-200">
+              <Mail className="h-3.5 w-3.5 text-gray-400" />
               Email Address
               <RequiredMark />
             </Label>
@@ -186,8 +214,8 @@ export default function NdaForm({ defaultValues, onComplete }: Props) {
 
           {/* Phone */}
           <div>
-            <Label htmlFor="phone" className="mb-1.5 text-white/80">
-              <Phone className="h-3.5 w-3.5 text-white/50" />
+            <Label htmlFor="phone" className="mb-1.5 text-gray-200">
+              <Phone className="h-3.5 w-3.5 text-gray-400" />
               Phone Number
               <RequiredMark />
             </Label>
@@ -204,8 +232,8 @@ export default function NdaForm({ defaultValues, onComplete }: Props) {
 
           {/* Company */}
           <div>
-            <Label htmlFor="company" className="mb-1.5 text-white/80">
-              <Building2 className="h-3.5 w-3.5 text-white/50" />
+            <Label htmlFor="company" className="mb-1.5 text-gray-200">
+              <Building2 className="h-3.5 w-3.5 text-gray-400" />
               Company Name
             </Label>
             <Input
@@ -219,8 +247,8 @@ export default function NdaForm({ defaultValues, onComplete }: Props) {
 
           {/* Role */}
           <div>
-            <Label className="mb-1.5 text-white/80">
-              <Users className="h-3.5 w-3.5 text-white/50" />
+            <Label className="mb-1.5 text-gray-200">
+              <Users className="h-3.5 w-3.5 text-gray-400" />
               Role
               <RequiredMark />
             </Label>
@@ -249,8 +277,8 @@ export default function NdaForm({ defaultValues, onComplete }: Props) {
 
           {/* Referred By */}
           <div>
-            <Label htmlFor="referredBy" className="mb-1.5 text-white/80">
-              <Users className="h-3.5 w-3.5 text-white/50" />
+            <Label htmlFor="referredBy" className="mb-1.5 text-gray-200">
+              <Users className="h-3.5 w-3.5 text-gray-400" />
               Referred By / Agent
             </Label>
             <Input
@@ -263,8 +291,8 @@ export default function NdaForm({ defaultValues, onComplete }: Props) {
 
           {/* Date (readonly) */}
           <div className="md:col-span-2">
-            <Label htmlFor="date" className="mb-1.5 text-white/80">
-              <Calendar className="h-3.5 w-3.5 text-white/50" />
+            <Label htmlFor="date" className="mb-1.5 text-gray-200">
+              <Calendar className="h-3.5 w-3.5 text-gray-400" />
               Date of Agreement
             </Label>
             <Input
@@ -276,11 +304,18 @@ export default function NdaForm({ defaultValues, onComplete }: Props) {
             />
           </div>
         </div>
-      </div>
+      </section>
+
+      <div className="h-px w-full bg-gray-700/60" />
 
       {/* Typed Signature */}
-      <div>
-        <Label htmlFor="signature" className="mb-1.5 text-white/80">
+      <section>
+        <SectionHeader
+          Icon={PenLine}
+          eyebrow="Electronic Signature"
+          title="Sign by typing your full legal name"
+        />
+        <Label htmlFor="signature" className="mb-1.5 text-gray-200">
           Type Your Full Legal Name to Sign
           <RequiredMark />
         </Label>
@@ -294,62 +329,73 @@ export default function NdaForm({ defaultValues, onComplete }: Props) {
           aria-invalid={!!errors.signature}
           {...register("signature")}
         />
-        <p className="mt-1.5 text-xs text-white/50">
+        <p className="mt-2 text-xs text-gray-400">
           By typing your name, you agree that this serves as your legal
           electronic signature under the ESIGN Act and UETA.
         </p>
         <FieldError message={errors.signature?.message} />
-      </div>
+      </section>
 
       {/* Checkboxes */}
-      <div className="space-y-3">
-        <label className="flex items-start gap-3 cursor-pointer">
-          <Checkbox
-            {...register("agreedToNda")}
-            aria-invalid={!!errors.agreedToNda}
-            className="mt-0.5"
-          />
-          <span className="text-sm text-white/85">
-            I have read and agree to the terms of this Mutual Non-Disclosure
-            Agreement.
-            <RequiredMark />
-          </span>
-        </label>
-        <FieldError message={errors.agreedToNda?.message} />
+      <section>
+        <SectionHeader
+          Icon={ShieldCheck}
+          eyebrow="Acknowledgements"
+          title="Confirm consent and preferences"
+        />
 
-        <label className="flex items-start gap-3 cursor-pointer">
-          <Checkbox
-            {...register("agreedToContact")}
-            aria-invalid={!!errors.agreedToContact}
-            className="mt-0.5"
-          />
-          <span className="text-sm text-white/85">
-            I agree to be contacted by Alpha Capital One via call, email, and
-            text regarding investment opportunities.
-            <RequiredMark />
-          </span>
-        </label>
-        <FieldError message={errors.agreedToContact?.message} />
+        <div className="space-y-4 rounded-lg border border-gray-700 bg-gray-900/40 p-5">
+          <label className="flex cursor-pointer items-start gap-3">
+            <Checkbox
+              {...register("agreedToNda")}
+              aria-invalid={!!errors.agreedToNda}
+              className="mt-0.5"
+            />
+            <span className="text-sm text-gray-200">
+              I have read and agree to the terms of this Mutual Non-Disclosure
+              Agreement.
+              <RequiredMark />
+            </span>
+          </label>
+          <FieldError message={errors.agreedToNda?.message} />
 
-        <label className="flex items-start gap-3 cursor-pointer">
-          <Checkbox {...register("subscribeInsights")} className="mt-0.5" />
-          <span className="text-sm text-white/85">
-            Subscribe to weekly market insights &amp; deal alerts.
-          </span>
-        </label>
+          <label className="flex cursor-pointer items-start gap-3">
+            <Checkbox
+              {...register("agreedToContact")}
+              aria-invalid={!!errors.agreedToContact}
+              className="mt-0.5"
+            />
+            <span className="text-sm text-gray-200">
+              I agree to be contacted by Alpha Capital One via call, email, and
+              text regarding investment opportunities.
+              <RequiredMark />
+            </span>
+          </label>
+          <FieldError message={errors.agreedToContact?.message} />
 
-        <label className="flex items-start gap-3 cursor-pointer">
-          <Checkbox {...register("subscribeOffMarket")} className="mt-0.5" />
-          <span className="text-sm text-white/85">
-            I&apos;d like early access to off-market deals and the market newsletter.
-          </span>
-        </label>
-      </div>
+          <div className="h-px w-full bg-gray-700/60" />
+
+          <label className="flex cursor-pointer items-start gap-3">
+            <Checkbox {...register("subscribeInsights")} className="mt-0.5" />
+            <span className="text-sm text-gray-200">
+              Subscribe to weekly market insights &amp; deal alerts.
+            </span>
+          </label>
+
+          <label className="flex cursor-pointer items-start gap-3">
+            <Checkbox {...register("subscribeOffMarket")} className="mt-0.5" />
+            <span className="text-sm text-gray-200">
+              I&apos;d like early access to off-market deals and the market newsletter.
+            </span>
+          </label>
+        </div>
+      </section>
 
       {serverError && (
-        <p className="rounded-md border border-red-500/40 bg-red-500/10 px-3 py-2 text-sm text-red-300">
-          {serverError}
-        </p>
+        <Alert variant="destructive" className="border-red-500/40 bg-red-500/10">
+          <AlertCircle />
+          <AlertDescription>{serverError}</AlertDescription>
+        </Alert>
       )}
 
       {/* Submit */}

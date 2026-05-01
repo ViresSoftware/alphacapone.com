@@ -1,13 +1,16 @@
 import Link from "next/link"
-import { ExternalLink } from "lucide-react"
+import { ExternalLink, FileText } from "lucide-react"
 
 export default function NdaLegalText() {
   return (
     <div>
-      <div className="mb-3 flex items-center justify-between gap-3">
-        <h3 className="text-sm font-semibold uppercase tracking-[0.1em] text-white/70">
-          Mutual Non-Circumvention, Non-Disclosure &amp; Confidentiality Agreement
-        </h3>
+      <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
+        <div className="flex items-center gap-2">
+          <FileText className="h-4 w-4 text-[#fcd770]" />
+          <h3 className="font-heading text-[0.8rem] uppercase tracking-[0.12em] text-[var(--text-secondary)]">
+            Mutual NCNDA — Agreement Text
+          </h3>
+        </div>
         <Link
           href="/pdfs/Mutual-NCNDA.pdf"
           target="_blank"
@@ -17,11 +20,11 @@ export default function NdaLegalText() {
           Open full PDF <ExternalLink className="h-3 w-3" />
         </Link>
       </div>
-      <div className="max-h-64 overflow-y-auto rounded-md border border-white/10 bg-white/[0.03] p-4 text-sm leading-relaxed text-white/80">
+      <div className="max-h-72 overflow-y-auto rounded-lg border border-gray-700 bg-gray-900/40 p-5 text-sm leading-relaxed text-gray-300">
         <p className="mb-3">
           This Mutual Non-Circumvention, Non-Disclosure and Confidentiality
           Agreement (this &ldquo;Agreement&rdquo;) is entered into as of the date below
-          by and between <strong>Alpha Capital One</strong> and the undersigned
+          by and between <strong className="text-white">Alpha Capital One</strong> and the undersigned
           party (each a &ldquo;Party&rdquo; and together the &ldquo;Parties&rdquo;).
         </p>
 
@@ -105,7 +108,7 @@ export default function NdaLegalText() {
           whether written or oral.
         </p>
 
-        <p className="mt-4 text-xs italic text-white/50">
+        <p className="mt-4 text-xs italic text-gray-500">
           The PDF version linked above is the binding document. By signing
           below, you acknowledge having had the opportunity to review the full
           PDF and accept its terms.
