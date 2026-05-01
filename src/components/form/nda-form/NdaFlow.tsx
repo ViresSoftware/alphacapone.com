@@ -61,7 +61,13 @@ export default function NdaFlow() {
     const saved = flowStorage.read()
     if (saved) {
       if (saved.ndaData) setNdaData(saved.ndaData)
-      if (saved.currentStep) setCurrentStep(saved.currentStep)
+      // Map old "buyer" step to "nda" since we removed that step
+      if (saved.currentStep) {
+        const step = saved.currentStep === "buyer" ? "nda" : saved.currentStep
+        if (step === "nda" || step === "done") {
+          setCurrentStep(step)
+        }
+      }
     }
     setHydrated(true)
   }, [])
