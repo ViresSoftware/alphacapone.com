@@ -4,13 +4,16 @@ import { useEffect, useMemo, useState } from "react"
 
 import { Card, CardContent } from "@/components/ui/card"
 
-import StepNav, { type NdaFlowStep } from "./StepNav"
+// import StepNav, { type NdaFlowStep } from "./StepNav"
 import HowItWorksGrid from "./HowItWorksGrid"
 import NdaForm from "./NdaForm"
-import BuyerProfileForm from "./BuyerProfileForm"
+// import BuyerProfileForm from "./BuyerProfileForm"
 import RegistrationSuccess from "./RegistrationSuccess"
 import { clearAllNdaFlowStorage, flowStorage } from "./storage"
-import type { BuyerProfileValues, NdaFormValues } from "./schema"
+import type { /* BuyerProfileValues, */ NdaFormValues } from "./schema"
+
+// Simplified step type - only nda and done needed now
+type NdaFlowStep = "nda" | "done"
 
 function scrollToTopOfFlow() {
   if (typeof window === "undefined") return
@@ -27,17 +30,19 @@ const stepCopy: Record<
   { eyebrow: string; title: string; description: string }
 > = {
   nda: {
-    eyebrow: "Step 1 of 2",
+    eyebrow: "Mutual NCNDA",
     title: "Sign the Mutual NCNDA",
     description:
-      "Review the mutual confidentiality terms, then sign electronically to begin the access request.",
+      "Review the mutual confidentiality terms, then sign electronically to request access.",
   },
+  /* Step 2 - Buyer Profile - Commented out
   buyer: {
     eyebrow: "Step 2 of 2",
     title: "Tell Us About Your Mandate",
     description:
       "Share your acquisition criteria so our team can match you with off-market opportunities that fit.",
   },
+  */
   done: {
     eyebrow: "Submitted",
     title: "Request Received",
@@ -67,19 +72,27 @@ export default function NdaFlow() {
     flowStorage.write({ currentStep, ndaData })
   }, [hydrated, currentStep, ndaData])
 
+  /* Step 2, 3, 4 navigation - Commented out
   const availableSteps = useMemo<ReadonlySet<NdaFlowStep>>(() => {
     const set = new Set<NdaFlowStep>(["nda"])
     if (ndaData) set.add("buyer")
     if (currentStep === "done") set.add("done")
     return set
   }, [ndaData, currentStep])
+  */
 
+  // NDA form now goes directly to done state after submission
   const handleStep1Complete = (data: NdaFormValues) => {
     setNdaData(data)
-    setCurrentStep("buyer")
+    setCurrentStep("done")
+    // Drafts no longer needed after final submission
+    clearAllNdaFlowStorage()
+    // Re-write flow state so the success page survives a refresh
+    flowStorage.write({ currentStep: "done", ndaData: data })
     scrollToTopOfFlow()
   }
 
+  /* Step 2 - Buyer Profile handler - Commented out
   const handleStep2Complete = (_data: BuyerProfileValues) => {
     setCurrentStep("done")
     // Drafts no longer needed after final submission
@@ -88,7 +101,9 @@ export default function NdaFlow() {
     flowStorage.write({ currentStep: "done", ndaData })
     scrollToTopOfFlow()
   }
+  */
 
+  /* Step navigation handlers - Commented out
   const handleNavigate = (step: NdaFlowStep) => {
     if (step === currentStep) return
     if (!availableSteps.has(step)) return
@@ -97,6 +112,7 @@ export default function NdaFlow() {
   }
 
   const handleBack = () => handleNavigate("nda")
+  */
 
   const copy = stepCopy[currentStep]
 
@@ -113,6 +129,7 @@ export default function NdaFlow() {
       </h2>
       <p className="mb-10 max-w-2xl text-gray-300">{copy.description}</p>
 
+      {/* Step navigation UI - Commented out
       <div className="mb-10">
         <StepNav
           currentStep={currentStep}
@@ -120,6 +137,7 @@ export default function NdaFlow() {
           onNavigate={handleNavigate}
         />
       </div>
+      */}
 
       {!hydrated ? null : (
         <>
@@ -137,6 +155,7 @@ export default function NdaFlow() {
             </div>
           )}
 
+          {/* Step 2 - Buyer Profile - Commented out
           {currentStep === "buyer" && ndaData && (
             <Card className="border-gray-700 bg-gray-800/50 text-white backdrop-blur-sm">
               <CardContent className="px-6 py-2 sm:px-8">
@@ -148,6 +167,7 @@ export default function NdaFlow() {
               </CardContent>
             </Card>
           )}
+          */}
 
           {currentStep === "done" && (
             <Card className="border-gray-700 bg-gray-800/50 text-white backdrop-blur-sm">

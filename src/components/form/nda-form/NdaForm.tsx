@@ -185,14 +185,7 @@ export default function NdaForm({ defaultValues, onComplete }: Props) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-10 py-6">
-      {/* NDA text */}
-      <section>
-        <NdaLegalText />
-      </section>
-
-      <div className="h-px w-full bg-gray-700/60" />
-
-      {/* Your Information */}
+      {/* Your Information - moved to top */}
       <section>
         <SectionHeader
           Icon={ShieldCheck}
@@ -332,35 +325,14 @@ export default function NdaForm({ defaultValues, onComplete }: Props) {
 
       <div className="h-px w-full bg-gray-700/60" />
 
-      {/* Typed Signature */}
+      {/* NDA text - Mutual NCNDA */}
       <section>
-        <SectionHeader
-          Icon={PenLine}
-          eyebrow="Electronic Signature"
-          title="Sign by typing your full legal name"
-        />
-        <Label htmlFor="signature" className="mb-1.5 text-gray-200">
-          Type Your Full Legal Name to Sign
-          <RequiredMark />
-        </Label>
-        <Input
-          id="signature"
-          placeholder={fullName ? `Type "${fullName}"` : "Type your full legal name"}
-          className={cn(
-            "font-serif italic",
-            signatureMatches && "border-[#fcd770]/60 text-[#fcd770]"
-          )}
-          aria-invalid={!!errors.signature}
-          {...register("signature")}
-        />
-        <p className="mt-2 text-xs text-gray-400">
-          By typing your name, you agree that this serves as your legal
-          electronic signature under the ESIGN Act and UETA.
-        </p>
-        <FieldError message={errors.signature?.message} />
+        <NdaLegalText />
       </section>
 
-      {/* Checkboxes */}
+      <div className="h-px w-full bg-gray-700/60" />
+
+      {/* Checkboxes - Acknowledgements */}
       <section>
         <SectionHeader
           Icon={ShieldCheck}
@@ -400,6 +372,36 @@ export default function NdaForm({ defaultValues, onComplete }: Props) {
         </div>
       </section>
 
+      <div className="h-px w-full bg-gray-700/60" />
+
+      {/* Typed Signature - Electronic Signature */}
+      <section>
+        <SectionHeader
+          Icon={PenLine}
+          eyebrow="Electronic Signature"
+          title="Sign by typing your full legal name"
+        />
+        <Label htmlFor="signature" className="mb-1.5 text-gray-200">
+          Type Your Full Legal Name to Sign
+          <RequiredMark />
+        </Label>
+        <Input
+          id="signature"
+          placeholder={fullName ? `Type "${fullName}"` : "Type your full legal name"}
+          className={cn(
+            "font-serif italic",
+            signatureMatches && "border-[#fcd770]/60 text-[#fcd770]"
+          )}
+          aria-invalid={!!errors.signature}
+          {...register("signature")}
+        />
+        <p className="mt-2 text-xs text-gray-400">
+          By typing your name, you agree that this serves as your legal
+          electronic signature under the ESIGN Act and UETA.
+        </p>
+        <FieldError message={errors.signature?.message} />
+      </section>
+
       {serverError && (
         <Alert variant="destructive" className="border-red-500/40 bg-red-500/10">
           <AlertCircle />
@@ -414,7 +416,7 @@ export default function NdaForm({ defaultValues, onComplete }: Props) {
         size="lg"
         className="w-full bg-[#fcd770] font-semibold text-black hover:bg-[#b28f3f]"
       >
-        {submitting ? "Recording…" : "Continue to Buyer Profile"}
+        {submitting ? "Recording…" : "Submit Signed Agreement"}
         <ChevronRight className="h-4 w-4" />
       </Button>
     </form>
