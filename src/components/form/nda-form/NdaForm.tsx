@@ -17,7 +17,6 @@ import {
 } from "lucide-react"
 
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Checkbox } from "@/components/ui/checkbox"
@@ -29,6 +28,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { cn } from "@/lib/utils"
+import { SteelButton } from "@/components/SteelButton"
 
 import NdaLegalText from "./NdaLegalText"
 import { ndaDraftStorage } from "./storage"
@@ -410,15 +410,12 @@ export default function NdaForm({ defaultValues, onComplete }: Props) {
       )}
 
       {/* Submit */}
-      <Button
-        type="submit"
-        disabled={!canContinue}
-        size="lg"
-        className="w-full bg-[#fcd770] font-semibold text-black hover:bg-[#b28f3f]"
-      >
-        {submitting ? "Recording…" : "Submit Signed Agreement"}
-        <ChevronRight className="h-4 w-4" />
-      </Button>
+      <div className={cn(!canContinue && "pointer-events-none opacity-50")}>
+        <SteelButton type="submit" fullWidth>
+          {submitting ? "Recording…" : "Submit Signed Agreement"}
+          <ChevronRight className="h-4 w-4" />
+        </SteelButton>
+      </div>
     </form>
   )
 }
