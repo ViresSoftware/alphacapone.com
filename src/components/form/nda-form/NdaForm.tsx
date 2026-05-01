@@ -1,6 +1,6 @@
 "use client"
 
-import { useMemo, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import {
@@ -31,6 +31,7 @@ import {
 import { cn } from "@/lib/utils"
 
 import NdaLegalText from "./NdaLegalText"
+import { ndaDraftStorage } from "./storage"
 import {
   ndaFormSchema,
   roleLabels,
@@ -92,6 +93,8 @@ export default function NdaForm({ defaultValues, onComplete }: Props) {
     handleSubmit,
     watch,
     setValue,
+    reset,
+    getValues,
     formState: { errors },
   } = useForm<NdaFormValues>({
     resolver: zodResolver(ndaFormSchema),
@@ -107,11 +110,32 @@ export default function NdaForm({ defaultValues, onComplete }: Props) {
       signature: "",
       agreedToNda: false as unknown as true,
       agreedToContact: false as unknown as true,
-      subscribeInsights: true,
-      subscribeOffMarket: false,
       ...defaultValues,
     },
   })
+
+  // Hydrate from localStorage draft on mount, then persist on every change.
+  // `defaultValues` (typically `ndaData` from the parent) takes precedence
+  // over any saved draft so a previously-submitted signature isn't replaced
+  // by stale autosaved input.
+  useEffect(() => {
+    const saved = ndaDraftStorage.read()
+    if (saved && Object.keys(saved).length > 0) {
+      const current = getValues()
+      reset({
+        ...current,
+        ...saved,
+        ...(defaultValues ?? {}),
+        date: current.date,
+      } as NdaFormValues)
+    }
+
+    const subscription = watch((values) => {
+      ndaDraftStorage.write(values as Partial<NdaFormValues>)
+    })
+    return () => subscription.unsubscribe()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const fullName = watch("fullName")
   const email = watch("email")
@@ -373,21 +397,6 @@ export default function NdaForm({ defaultValues, onComplete }: Props) {
           </label>
           <FieldError message={errors.agreedToContact?.message} />
 
-          <div className="h-px w-full bg-gray-700/60" />
-
-          <label className="flex cursor-pointer items-start gap-3">
-            <Checkbox {...register("subscribeInsights")} className="mt-0.5" />
-            <span className="text-sm text-gray-200">
-              Subscribe to weekly market insights &amp; deal alerts.
-            </span>
-          </label>
-
-          <label className="flex cursor-pointer items-start gap-3">
-            <Checkbox {...register("subscribeOffMarket")} className="mt-0.5" />
-            <span className="text-sm text-gray-200">
-              I&apos;d like early access to off-market deals and the market newsletter.
-            </span>
-          </label>
         </div>
       </section>
 

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import {
@@ -30,6 +30,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
+import { buyerDraftStorage } from "./storage"
 import {
   assetTypeValues,
   buyerProfileSchema,
@@ -86,6 +87,8 @@ export default function BuyerProfileForm({ ndaData, onBack, onComplete }: Props)
     handleSubmit,
     watch,
     setValue,
+    reset,
+    getValues,
     formState: { errors },
   } = useForm<BuyerProfileValues>({
     resolver: zodResolver(buyerProfileSchema),
@@ -96,6 +99,20 @@ export default function BuyerProfileForm({ ndaData, onBack, onComplete }: Props)
       notes: "",
     },
   })
+
+  useEffect(() => {
+    const saved = buyerDraftStorage.read()
+    if (saved && Object.keys(saved).length > 0) {
+      const current = getValues()
+      reset({ ...current, ...saved } as BuyerProfileValues)
+    }
+
+    const subscription = watch((values) => {
+      buyerDraftStorage.write(values as Partial<BuyerProfileValues>)
+    })
+    return () => subscription.unsubscribe()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const numberSetValueAs = (v: unknown) => {
     if (v === "" || v === null || v === undefined) return undefined

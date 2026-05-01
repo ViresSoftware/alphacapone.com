@@ -16,7 +16,17 @@ function stepRank(s: NdaFlowStep) {
   return s === "nda" ? 1 : s === "buyer" ? 2 : 3
 }
 
-export default function StepNav({ currentStep }: { currentStep: NdaFlowStep }) {
+interface StepNavProps {
+  currentStep: NdaFlowStep
+  availableSteps?: ReadonlySet<NdaFlowStep>
+  onNavigate?: (step: NdaFlowStep) => void
+}
+
+export default function StepNav({
+  currentStep,
+  availableSteps,
+  onNavigate,
+}: StepNavProps) {
   const rank = stepRank(currentStep)
 
   return (
@@ -24,30 +34,54 @@ export default function StepNav({ currentStep }: { currentStep: NdaFlowStep }) {
       {steps.map((step, i) => {
         const isActive = currentStep === step.id
         const isComplete = rank > step.number
+        const canNavigate =
+          !isActive && !!onNavigate && !!availableSteps?.has(step.id)
+
+        const itemClass = cn(
+          "flex items-center gap-2.5 rounded-md text-xs font-medium uppercase tracking-[0.08em] sm:text-sm",
+          isActive && "text-[#fcd770]",
+          isComplete && "text-[#fcd770]/80",
+          !isActive && !isComplete && "text-gray-400",
+          canNavigate && "cursor-pointer transition-colors hover:text-[#fcd770]"
+        )
+        const circleClass = cn(
+          "flex h-7 w-7 items-center justify-center rounded-full border text-[12px] transition-colors",
+          isActive && "border-[#fcd770] bg-[#fcd770] text-black",
+          isComplete && "border-[#fcd770]/60 bg-[#fcd770]/15 text-[#fcd770]",
+          !isActive &&
+            !isComplete &&
+            "border-gray-700 bg-gray-800/60 text-gray-400"
+        )
+
+        const inner = (
+          <>
+            <span className={circleClass}>
+              {isComplete ? <Check className="h-3.5 w-3.5" /> : step.number}
+            </span>
+            <span className="hidden sm:inline">{step.label}</span>
+          </>
+        )
+
         return (
           <Fragment key={step.id}>
-            <li
-              className={cn(
-                "flex items-center gap-2.5 text-xs font-medium uppercase tracking-[0.08em] sm:text-sm",
-                isActive && "text-[#fcd770]",
-                isComplete && "text-[#fcd770]/80",
-                !isActive && !isComplete && "text-gray-400"
+            <li>
+              {canNavigate ? (
+                <button
+                  type="button"
+                  onClick={() => onNavigate?.(step.id)}
+                  aria-label={`Go to ${step.label}`}
+                  className={itemClass}
+                >
+                  {inner}
+                </button>
+              ) : (
+                <div
+                  className={itemClass}
+                  aria-current={isActive ? "step" : undefined}
+                >
+                  {inner}
+                </div>
               )}
-            >
-              <span
-                className={cn(
-                  "flex h-7 w-7 items-center justify-center rounded-full border text-[12px] transition-colors",
-                  isActive && "border-[#fcd770] bg-[#fcd770] text-black",
-                  isComplete &&
-                    "border-[#fcd770]/60 bg-[#fcd770]/15 text-[#fcd770]",
-                  !isActive &&
-                    !isComplete &&
-                    "border-gray-700 bg-gray-800/60 text-gray-400"
-                )}
-              >
-                {isComplete ? <Check className="h-3.5 w-3.5" /> : step.number}
-              </span>
-              <span className="hidden sm:inline">{step.label}</span>
             </li>
             {i < steps.length - 1 && (
               <span

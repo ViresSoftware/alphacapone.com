@@ -65,8 +65,6 @@ export const ndaFormSchema = z
     signature: z.string().min(2, "Please type your name to sign"),
     agreedToNda: z.literal(true, { message: "You must agree to the NDA" }),
     agreedToContact: z.literal(true, { message: "Contact consent is required" }),
-    subscribeInsights: z.boolean(),
-    subscribeOffMarket: z.boolean(),
   })
   .refine(
     (d) => d.signature.trim().toLowerCase() === d.fullName.trim().toLowerCase(),

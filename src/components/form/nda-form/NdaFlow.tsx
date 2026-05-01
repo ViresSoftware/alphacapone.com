@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 
 import { Card, CardContent } from "@/components/ui/card"
 
@@ -9,6 +9,7 @@ import HowItWorksGrid from "./HowItWorksGrid"
 import NdaForm from "./NdaForm"
 import BuyerProfileForm from "./BuyerProfileForm"
 import RegistrationSuccess from "./RegistrationSuccess"
+import { clearAllNdaFlowStorage, flowStorage } from "./storage"
 import type { BuyerProfileValues, NdaFormValues } from "./schema"
 
 function scrollToTopOfFlow() {
@@ -48,6 +49,30 @@ const stepCopy: Record<
 export default function NdaFlow() {
   const [currentStep, setCurrentStep] = useState<NdaFlowStep>("nda")
   const [ndaData, setNdaData] = useState<NdaFormValues | null>(null)
+  const [hydrated, setHydrated] = useState(false)
+
+  // Hydrate from localStorage on mount
+  useEffect(() => {
+    const saved = flowStorage.read()
+    if (saved) {
+      if (saved.ndaData) setNdaData(saved.ndaData)
+      if (saved.currentStep) setCurrentStep(saved.currentStep)
+    }
+    setHydrated(true)
+  }, [])
+
+  // Persist flow state whenever it changes (after hydration)
+  useEffect(() => {
+    if (!hydrated) return
+    flowStorage.write({ currentStep, ndaData })
+  }, [hydrated, currentStep, ndaData])
+
+  const availableSteps = useMemo<ReadonlySet<NdaFlowStep>>(() => {
+    const set = new Set<NdaFlowStep>(["nda"])
+    if (ndaData) set.add("buyer")
+    if (currentStep === "done") set.add("done")
+    return set
+  }, [ndaData, currentStep])
 
   const handleStep1Complete = (data: NdaFormValues) => {
     setNdaData(data)
@@ -57,13 +82,21 @@ export default function NdaFlow() {
 
   const handleStep2Complete = (_data: BuyerProfileValues) => {
     setCurrentStep("done")
+    // Drafts no longer needed after final submission
+    clearAllNdaFlowStorage()
+    // Re-write flow state so the success page survives a refresh
+    flowStorage.write({ currentStep: "done", ndaData })
     scrollToTopOfFlow()
   }
 
-  const handleBack = () => {
-    setCurrentStep("nda")
+  const handleNavigate = (step: NdaFlowStep) => {
+    if (step === currentStep) return
+    if (!availableSteps.has(step)) return
+    setCurrentStep(step)
     scrollToTopOfFlow()
   }
+
+  const handleBack = () => handleNavigate("nda")
 
   const copy = stepCopy[currentStep]
 
@@ -81,38 +114,49 @@ export default function NdaFlow() {
       <p className="mb-10 max-w-2xl text-gray-300">{copy.description}</p>
 
       <div className="mb-10">
-        <StepNav currentStep={currentStep} />
+        <StepNav
+          currentStep={currentStep}
+          availableSteps={availableSteps}
+          onNavigate={handleNavigate}
+        />
       </div>
 
-      {currentStep === "nda" && (
-        <div className="space-y-10">
-          <HowItWorksGrid />
-          <Card className="border-gray-700 bg-gray-800/50 text-white backdrop-blur-sm">
-            <CardContent className="px-6 py-2 sm:px-8">
-              <NdaForm onComplete={handleStep1Complete} />
-            </CardContent>
-          </Card>
-        </div>
-      )}
+      {!hydrated ? null : (
+        <>
+          {currentStep === "nda" && (
+            <div className="space-y-10">
+              <HowItWorksGrid />
+              <Card className="border-gray-700 bg-gray-800/50 text-white backdrop-blur-sm">
+                <CardContent className="px-6 py-2 sm:px-8">
+                  <NdaForm
+                    defaultValues={ndaData ?? undefined}
+                    onComplete={handleStep1Complete}
+                  />
+                </CardContent>
+              </Card>
+            </div>
+          )}
 
-      {currentStep === "buyer" && ndaData && (
-        <Card className="border-gray-700 bg-gray-800/50 text-white backdrop-blur-sm">
-          <CardContent className="px-6 py-2 sm:px-8">
-            <BuyerProfileForm
-              ndaData={ndaData}
-              onBack={handleBack}
-              onComplete={handleStep2Complete}
-            />
-          </CardContent>
-        </Card>
-      )}
+          {currentStep === "buyer" && ndaData && (
+            <Card className="border-gray-700 bg-gray-800/50 text-white backdrop-blur-sm">
+              <CardContent className="px-6 py-2 sm:px-8">
+                <BuyerProfileForm
+                  ndaData={ndaData}
+                  onBack={handleBack}
+                  onComplete={handleStep2Complete}
+                />
+              </CardContent>
+            </Card>
+          )}
 
-      {currentStep === "done" && (
-        <Card className="border-gray-700 bg-gray-800/50 text-white backdrop-blur-sm">
-          <CardContent className="px-6 py-8 sm:px-12 sm:py-12">
-            <RegistrationSuccess email={ndaData?.email} />
-          </CardContent>
-        </Card>
+          {currentStep === "done" && (
+            <Card className="border-gray-700 bg-gray-800/50 text-white backdrop-blur-sm">
+              <CardContent className="px-6 py-8 sm:px-12 sm:py-12">
+                <RegistrationSuccess email={ndaData?.email} />
+              </CardContent>
+            </Card>
+          )}
+        </>
       )}
     </section>
   )
