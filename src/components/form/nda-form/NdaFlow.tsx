@@ -5,7 +5,7 @@ import { useEffect, useMemo, useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 
 // import StepNav, { type NdaFlowStep } from "./StepNav"
-import HowItWorksGrid from "./HowItWorksGrid"
+// import HowItWorksGrid from "./HowItWorksGrid"
 import NdaForm from "./NdaForm"
 // import BuyerProfileForm from "./BuyerProfileForm"
 import RegistrationSuccess from "./RegistrationSuccess"
@@ -143,7 +143,9 @@ export default function NdaFlow() {
         <>
           {currentStep === "nda" && (
             <div className="space-y-10">
+              {/* How It Works - From Signature to Off-Market Access - Commented out
               <HowItWorksGrid />
+              */}
               <Card className="border-gray-700 bg-gray-800/50 text-white backdrop-blur-sm">
                 <CardContent className="px-6 py-2 sm:px-8">
                   <NdaForm
