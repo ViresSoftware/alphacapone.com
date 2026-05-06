@@ -30,7 +30,7 @@ import {
 import { cn } from "@/lib/utils"
 import { SteelButton } from "@/components/SteelButton"
 
-import NdaLegalText from "./NdaLegalText"
+import MutualNCNDAAgreementText from "./MutualNCNDAAgreementText"
 import { ndaDraftStorage } from "./storage"
 import {
   ndaFormSchema,
@@ -327,7 +327,7 @@ export default function NdaForm({ defaultValues, onComplete }: Props) {
 
       {/* NDA text - Mutual NCNDA */}
       <section>
-        <NdaLegalText />
+        <MutualNCNDAAgreementText />
       </section>
 
       <div className="h-px w-full bg-gray-700/60" />
