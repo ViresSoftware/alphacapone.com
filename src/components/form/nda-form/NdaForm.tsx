@@ -164,13 +164,32 @@ export default function NdaForm({ defaultValues, onComplete }: Props) {
     setSubmitting(true)
     setServerError(null)
     try {
-      const res = await fetch("/api/nda", {
+      const trimmedName = data.fullName.trim()
+      const spaceIdx = trimmedName.indexOf(" ")
+      const firstName = spaceIdx === -1 ? trimmedName : trimmedName.slice(0, spaceIdx)
+      const lastName = spaceIdx === -1 ? "" : trimmedName.slice(spaceIdx + 1).trim()
+
+      const submissionData = {
+        form_id: 3,
+        first_name: firstName,
+        last_name: lastName,
+        email_address: data.email,
+        phone: data.phone,
+        company: data.company ?? "",
+        role: data.role,
+        referred_by: data.referredBy ?? "",
+        agreement_date: data.date,
+        signature: data.signature,
+        agreed_to_nda: data.agreedToNda ? "1" : "0",
+        agreed_to_contact: data.agreedToContact ? "1" : "0",
+      }
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/wp-json/vires/v1/submissions`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify(submissionData),
       })
       const json = await res.json()
-      if (!res.ok || !json.ok) {
+      if (!res.ok || json.success !== true) {
         setServerError(json.message || "We couldn't record your signature. Please try again.")
         return
       }
