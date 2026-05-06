@@ -17,9 +17,24 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
-export const metadata = {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://www.alphacapone.com"),
   title: "Alpha Capital One",
   description: "Your Partner in Sophisticated Investment Strategies",
+  openGraph: {
+    title: "Alpha Capital One",
+    description: "Your Partner in Sophisticated Investment Strategies",
+    images: [{ url: "/logo/logo-metallic-black-bg.png" }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Alpha Capital One",
+    description: "Your Partner in Sophisticated Investment Strategies",
+    images: ["/logo/logo-metallic-black-bg.png"],
+  },
   // icons: {
   //   icon: "/favicon.ico",
   // },

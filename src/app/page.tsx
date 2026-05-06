@@ -21,6 +21,7 @@ export const metadata: Metadata = {
       "Invite-only access for verified principals, family offices, and law firms to structured transactions in digital assets, petroleum, and high-value luxury assets.",
     url: "/",
     type: "website",
+    images: [{ url: "/logo/logo-metallic-black-bg.png" }],
   },
 };
 

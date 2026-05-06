@@ -14,6 +14,7 @@ export const metadata: Metadata = {
       "Private equity, structured investments, cryptocurrency custody, petroleum, fine art, and tier-one trading services for verified institutional principals.",
     url: "/services",
     type: "website",
+    images: [{ url: "/logo/logo-metallic-black-bg.png" }],
   },
 };
 

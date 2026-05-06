@@ -14,6 +14,7 @@ export const metadata: Metadata = {
       "Submit a confidential inquiry to Alpha Capital One. We respond only to verified principals, family offices, and regulated entities.",
     url: "/contact",
     type: "website",
+    images: [{ url: "/logo/logo-metallic-black-bg.png" }],
   },
 };
 

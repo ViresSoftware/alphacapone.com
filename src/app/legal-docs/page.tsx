@@ -14,6 +14,7 @@ export const metadata: Metadata = {
       "View and download Alpha Capital One legal documents including the Applicant CIS, capabilities brief, and Non-QM loan services overview.",
     url: "/legal-docs",
     type: "website",
+    images: [{ url: "/logo/logo-metallic-black-bg.png" }],
   },
 };
 

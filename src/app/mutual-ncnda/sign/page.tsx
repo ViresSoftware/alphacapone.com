@@ -14,6 +14,7 @@ export const metadata: Metadata = {
       "Sign the Mutual Non-Circumvention, Non-Disclosure and Confidentiality Agreement and request private access.",
     url: "/mutual-ncnda/sign",
     type: "website",
+    images: [{ url: "/logo/logo-metallic-black-bg.png" }],
   },
 }
 
