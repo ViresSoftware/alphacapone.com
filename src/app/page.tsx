@@ -6,6 +6,7 @@ import Intelligence from "@/components/redesign/Intelligence";
 import Process from "@/components/redesign/Process";
 import Counterparties from "@/components/redesign/Counterparties";
 import Access from "@/components/redesign/Access";
+import MutualNcnda from "@/components/redesign/MutualNcnda";
 import HomeFeaturedCrypto from "@/components/home/FeaturedCrypto";
 import Services from "@/components/redesign/Services";
 import "./redesign/redesign.css";
@@ -36,6 +37,7 @@ export default function IndexPage() {
         <LuxMarket />
         <Process />
         <Counterparties />
+        <MutualNcnda />
         <Access />
       </div>
     </RestrictedContent>

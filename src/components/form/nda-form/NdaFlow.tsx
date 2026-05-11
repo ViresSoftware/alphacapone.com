@@ -120,6 +120,13 @@ export default function NdaFlow() {
   const handleBack = () => handleNavigate("nda")
   */
 
+  const handleReset = () => {
+    clearAllNdaFlowStorage()
+    setNdaData(null)
+    setCurrentStep("nda")
+    scrollToTopOfFlow()
+  }
+
   const copy = stepCopy[currentStep]
 
   return (
@@ -180,7 +187,10 @@ export default function NdaFlow() {
           {currentStep === "done" && (
             <Card className="border-gray-700 bg-gray-800/50 text-white backdrop-blur-sm">
               <CardContent className="px-6 py-8 sm:px-12 sm:py-12">
-                <RegistrationSuccess email={ndaData?.email} />
+                <RegistrationSuccess
+                  email={ndaData?.email}
+                  onReset={handleReset}
+                />
               </CardContent>
             </Card>
           )}

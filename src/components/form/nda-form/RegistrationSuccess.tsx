@@ -1,9 +1,15 @@
 import Link from "next/link"
-import { CheckCircle2, FileText, Home } from "lucide-react"
+import { CheckCircle2, FileText, Home, RotateCcw } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 
-export default function RegistrationSuccess({ email }: { email?: string }) {
+export default function RegistrationSuccess({
+  email,
+  onReset,
+}: {
+  email?: string
+  onReset?: () => void
+}) {
   return (
     <div className="flex flex-col items-center text-center">
       <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-[#fcd770]/15 text-[#fcd770] ring-1 ring-[#fcd770]/30">
@@ -49,6 +55,16 @@ export default function RegistrationSuccess({ email }: { email?: string }) {
           </Link>
         </Button>
       </div>
+      {onReset ? (
+        <button
+          type="button"
+          onClick={onReset}
+          className="mt-6 inline-flex items-center gap-2 text-sm text-gray-400 underline-offset-4 hover:text-white hover:underline"
+        >
+          <RotateCcw className="h-4 w-4" />
+          Sign another NCNDA
+        </button>
+      ) : null}
     </div>
   )
 }
