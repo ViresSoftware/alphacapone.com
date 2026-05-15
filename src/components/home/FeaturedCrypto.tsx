@@ -59,7 +59,7 @@ function hasError(err: Record<string, unknown> | undefined): boolean {
 
 async function fetchHistory(ticker: Ticker): Promise<HistoPoint[]> {
   try {
-    const url = `${COINDESK_BASE_URL}/spot/v1/historical/days?market=cadli&instrument=${ticker}-USD&limit=30&aggregate=1&groups=OHLC,VOLUME`;
+    const url = `${COINDESK_BASE_URL}/index/cc/v1/historical/days?market=cadli&instrument=${ticker}-USD&limit=30&aggregate=1&groups=OHLC,VOLUME`;
     const res = await fetch(url, {
       headers: authHeaders(),
       next: { revalidate: 300 },
@@ -83,7 +83,7 @@ async function fetchPrices(): Promise<Record<Ticker, TickerPrice | null>> {
   const empty: Record<Ticker, TickerPrice | null> = { BTC: null, XRP: null, SOL: null };
   try {
     const instruments = TICKERS.map((t) => `${t}-USD`).join(',');
-    const url = `${COINDESK_BASE_URL}/spot/v1/latest/tick?market=cadli&instruments=${instruments}&groups=VALUE,MOVING_24_HOUR`;
+    const url = `${COINDESK_BASE_URL}/index/cc/v1/latest/tick?market=cadli&instruments=${instruments}&groups=VALUE,MOVING_24_HOUR`;
     const res = await fetch(url, {
       headers: authHeaders(),
       next: { revalidate: 60 },
